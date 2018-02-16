@@ -23,7 +23,7 @@ function cleanup {
   echo 'Cleaning up.'
   cd "$root_path"
   # Uncomment when snapshot testing is enabled by default:
-  # rm ./packages/react-scripts/template/src/__snapshots__/App.test.js.snap
+  # rm ./packages/divi-scripts/template/src/__snapshots__/App.test.js.snap
   rm -rf "$temp_app_path"
   npm set registry "$original_npm_registry_url"
   yarn config set registry "$original_yarn_registry_url"
@@ -64,10 +64,10 @@ cd ..
 root_path=$PWD
 
 # Make sure we don't introduce accidental references to PATENTS.
-EXPECTED='packages/react-error-overlay/fixtures/bundle.mjs
-packages/react-error-overlay/fixtures/bundle.mjs.map
-packages/react-error-overlay/fixtures/bundle_u.mjs
-packages/react-error-overlay/fixtures/bundle_u.mjs.map
+EXPECTED='packages/divi-error-overlay/fixtures/bundle.mjs
+packages/divi-error-overlay/fixtures/bundle.mjs.map
+packages/divi-error-overlay/fixtures/bundle_u.mjs
+packages/divi-error-overlay/fixtures/bundle_u.mjs.map
 tasks/e2e-simple.sh'
 ACTUAL=$(git grep -l PATENTS)
 if [ "$EXPECTED" != "$ACTUAL" ]; then
@@ -99,12 +99,12 @@ yarn config set registry "$custom_registry_url"
 npx npm-cli-login@0.0.10 -u user -p password -e user@example.com -r "$custom_registry_url" --quotes
 
 # Lint own code
-./node_modules/.bin/eslint --max-warnings 0 packages/babel-preset-react-app/
-./node_modules/.bin/eslint --max-warnings 0 packages/create-react-app/
-./node_modules/.bin/eslint --max-warnings 0 packages/eslint-config-react-app/
-./node_modules/.bin/eslint --max-warnings 0 packages/react-dev-utils/
-./node_modules/.bin/eslint --max-warnings 0 packages/react-scripts/
-cd packages/react-error-overlay/
+./node_modules/.bin/eslint --max-warnings 0 packages/babel-preset-divi-extension/
+./node_modules/.bin/eslint --max-warnings 0 packages/create-divi-extension/
+./node_modules/.bin/eslint --max-warnings 0 packages/eslint-config-divi-extension/
+./node_modules/.bin/eslint --max-warnings 0 packages/divi-dev-utils/
+./node_modules/.bin/eslint --max-warnings 0 packages/divi-scripts/
+cd packages/divi-error-overlay/
 ./node_modules/.bin/eslint --max-warnings 0 src/
 yarn test
 
@@ -114,12 +114,12 @@ if [ $APPVEYOR != 'True' ]; then
 fi
 
 cd ../..
-cd packages/react-dev-utils/
+cd packages/divi-dev-utils/
 yarn test
 cd ../..
 
 # ******************************************************************************
-# First, test the create-react-app development environment.
+# First, test the create-divi-extension development environment.
 # This does not affect our users but makes sure we can develop it.
 # ******************************************************************************
 
@@ -144,17 +144,17 @@ git clean -df
 ./tasks/publish.sh --yes --force-publish=* --skip-git --cd-version=prerelease --exact --npm-tag=latest
 
 # ******************************************************************************
-# Install react-scripts prerelease via create-react-app prerelease.
+# Install divi-scripts prerelease via create-divi-extension prerelease.
 # ******************************************************************************
 
 # Install the app in a temporary location
 cd $temp_app_path
-npx create-react-app test-app
+npx create-divi-extension test-app
 
 # TODO: verify we installed prerelease
 
 # ******************************************************************************
-# Now that we used create-react-app to create an app depending on react-scripts,
+# Now that we used create-divi-extension to create an app depending on divi-scripts,
 # let's make sure all npm scripts are in the working state.
 # ******************************************************************************
 

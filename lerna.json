@@ -4,7 +4,7 @@
   "useWorkspaces": true,
   "version": "independent",
   "changelog": {
-    "repo": "facebookincubator/create-react-app",
+    "repo": "elegantthemes/create-divi-extension",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",

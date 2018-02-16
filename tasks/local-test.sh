@@ -67,7 +67,7 @@ case ${test_suite} in
 esac
 
 read -r -d '' apply_changes <<- CMD
-cd /var/create-react-app
+cd /var/create-divi-extension
 git config --global user.name "Create React App"
 git config --global user.email "cra@email.com"
 git stash save -u
@@ -75,7 +75,7 @@ git stash show -p > patch
 git diff 4b825dc642cb6eb9a060e54bf8d69288fbee4904 stash^3 >> patch
 git stash pop
 cd -
-mv /var/create-react-app/patch .
+mv /var/create-divi-extension/patch .
 git apply patch
 rm patch
 CMD
@@ -89,8 +89,8 @@ echo "prefix=~/.npm" > ~/.npmrc
 mkdir ~/.npm
 export PATH=\$PATH:~/.npm/bin
 set -x
-git clone /var/create-react-app create-react-app --branch ${git_branch}
-cd create-react-app
+git clone /var/create-divi-extension create-divi-extension --branch ${git_branch}
+cd create-divi-extension
 ${apply_changes}
 node --version
 npm --version
@@ -104,7 +104,7 @@ docker run \
   --env NPM_CONFIG_QUIET=true \
   --tty \
   --user node \
-  --volume ${PWD}/..:/var/create-react-app \
+  --volume ${PWD}/..:/var/create-divi-extension \
   --workdir /home/node \
   $([[ ${interactive} == 'true' ]] && echo '--interactive') \
   node:${node_version} \

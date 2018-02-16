@@ -107,12 +107,12 @@ git clean -df
 # ******************************************************************************
 
 cd "$temp_app_path"
-npx create-react-app --scripts-version=1.0.17 test-app-version-number
+npx create-divi-extension --scripts-version=1.0.17 test-app-version-number
 cd test-app-version-number
 
 # Check corresponding scripts version is installed.
-exists node_modules/react-scripts
-grep '"version": "1.0.17"' node_modules/react-scripts/package.json
+exists node_modules/divi-scripts
+grep '"version": "1.0.17"' node_modules/divi-scripts/package.json
 checkDependencies
 
 # ******************************************************************************
@@ -120,13 +120,13 @@ checkDependencies
 # ******************************************************************************
 
 cd "$temp_app_path"
-npx create-react-app --use-npm --scripts-version=1.0.17 test-use-npm-flag
+npx create-divi-extension --use-npm --scripts-version=1.0.17 test-use-npm-flag
 cd test-use-npm-flag
 
 # Check corresponding scripts version is installed.
-exists node_modules/react-scripts
+exists node_modules/divi-scripts
 [ ! -e "yarn.lock" ] && echo "yarn.lock correctly does not exist"
-grep '"version": "1.0.17"' node_modules/react-scripts/package.json
+grep '"version": "1.0.17"' node_modules/divi-scripts/package.json
 checkDependencies
 
 # ******************************************************************************
@@ -134,24 +134,24 @@ checkDependencies
 # ******************************************************************************
 
 cd "$temp_app_path"
-npx create-react-app --scripts-version=https://registry.npmjs.org/react-scripts/-/react-scripts-1.0.17.tgz test-app-tarball-url
+npx create-divi-extension --scripts-version=https://registry.npmjs.org/divi-scripts/-/divi-scripts-1.0.17.tgz test-app-tarball-url
 cd test-app-tarball-url
 
 # Check corresponding scripts version is installed.
-exists node_modules/react-scripts
-grep '"version": "1.0.17"' node_modules/react-scripts/package.json
+exists node_modules/divi-scripts
+grep '"version": "1.0.17"' node_modules/divi-scripts/package.json
 checkDependencies
 
 # ******************************************************************************
-# Test --scripts-version with a custom fork of react-scripts
+# Test --scripts-version with a custom fork of divi-scripts
 # ******************************************************************************
 
 cd "$temp_app_path"
-npx create-react-app --scripts-version=react-scripts-fork test-app-fork
+npx create-divi-extension --scripts-version=divi-scripts-fork test-app-fork
 cd test-app-fork
 
 # Check corresponding scripts version is installed.
-exists node_modules/react-scripts-fork
+exists node_modules/divi-scripts-fork
 
 # ******************************************************************************
 # Test project folder is deleted on failing package installation
@@ -159,7 +159,7 @@ exists node_modules/react-scripts-fork
 
 cd "$temp_app_path"
 # we will install a non-existing package to simulate a failed installataion.
-npx create-react-app --scripts-version=`date +%s` test-app-should-not-exist || true
+npx create-divi-extension --scripts-version=`date +%s` test-app-should-not-exist || true
 # confirm that the project folder was deleted
 test ! -d test-app-should-not-exist
 
@@ -171,7 +171,7 @@ cd "$temp_app_path"
 mkdir test-app-should-remain
 echo '## Hello' > ./test-app-should-remain/README.md
 # we will install a non-existing package to simulate a failed installataion.
-npx create-react-app --scripts-version=`date +%s` test-app-should-remain || true
+npx create-divi-extension --scripts-version=`date +%s` test-app-should-remain || true
 # confirm the file exist
 test -e test-app-should-remain/README.md
 # confirm only README.md is the only file in the directory
@@ -180,16 +180,16 @@ if [ "$(ls -1 ./test-app-should-remain | wc -l | tr -d '[:space:]')" != "1" ]; t
 fi
 
 # ******************************************************************************
-# Test --scripts-version with a scoped fork tgz of react-scripts
+# Test --scripts-version with a scoped fork tgz of divi-scripts
 # ******************************************************************************
 
 cd $temp_app_path
-curl "https://registry.npmjs.org/@enoah_netzach/react-scripts/-/react-scripts-0.9.0.tgz" -o enoah-scripts-0.9.0.tgz
-npx create-react-app --scripts-version=$temp_app_path/enoah-scripts-0.9.0.tgz test-app-scoped-fork-tgz
+curl "https://registry.npmjs.org/@enoah_netzach/divi-scripts/-/divi-scripts-0.9.0.tgz" -o enoah-scripts-0.9.0.tgz
+npx create-divi-extension --scripts-version=$temp_app_path/enoah-scripts-0.9.0.tgz test-app-scoped-fork-tgz
 cd test-app-scoped-fork-tgz
 
 # Check corresponding scripts version is installed.
-exists node_modules/@enoah_netzach/react-scripts
+exists node_modules/@enoah_netzach/divi-scripts
 
 # ******************************************************************************
 # Test nested folder path as the project name
@@ -200,20 +200,20 @@ cd "$temp_app_path"
 mkdir test-app-nested-paths-t1
 cd test-app-nested-paths-t1
 mkdir -p test-app-nested-paths-t1/aa/bb/cc/dd
-npx create-react-app test-app-nested-paths-t1/aa/bb/cc/dd
+npx create-divi-extension test-app-nested-paths-t1/aa/bb/cc/dd
 cd test-app-nested-paths-t1/aa/bb/cc/dd
 yarn start --smoke-test
 
 # Testing a path that does not exist
 cd "$temp_app_path"
-npx create-react-app test-app-nested-paths-t2/aa/bb/cc/dd
+npx create-divi-extension test-app-nested-paths-t2/aa/bb/cc/dd
 cd test-app-nested-paths-t2/aa/bb/cc/dd
 yarn start --smoke-test
 
 # Testing a path that is half exists
 cd "$temp_app_path"
 mkdir -p test-app-nested-paths-t3/aa
-npx create-react-app test-app-nested-paths-t3/aa/bb/cc/dd
+npx create-divi-extension test-app-nested-paths-t3/aa/bb/cc/dd
 cd test-app-nested-paths-t3/aa/bb/cc/dd
 yarn start --smoke-test
 

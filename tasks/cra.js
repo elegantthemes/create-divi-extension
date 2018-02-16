@@ -39,7 +39,7 @@ process.on('uncaughtException', handleError);
 // ******************************************************************************
 
 const rootDir = path.join(__dirname, '..');
-const reactScriptsDir = path.join(rootDir, 'packages', 'react-scripts');
+const reactScriptsDir = path.join(rootDir, 'packages', 'divi-scripts');
 const packageJsonPath = path.join(reactScriptsDir, 'package.json');
 const packageJsonOrigPath = path.join(reactScriptsDir, 'package.json.orig');
 
@@ -58,7 +58,7 @@ fs.writeFileSync(packageJsonOrigPath, fs.readFileSync(packageJsonPath));
 const replaceOwnDepsPath = path.join(__dirname, 'replace-own-deps.js');
 cp.execSync(`node ${replaceOwnDepsPath}`, { stdio: 'inherit' });
 
-// Finally, pack react-scripts
+// Finally, pack divi-scripts
 // Don't redirect stdio as we want to capture the output that will be returned
 // from execSync(). In this case it will be the .tgz filename.
 const scriptsFileName = cp
@@ -68,7 +68,7 @@ const scriptsFileName = cp
 const scriptsPath = path.join(
   rootDir,
   'packages',
-  'react-scripts',
+  'divi-scripts',
   scriptsFileName
 );
 
@@ -81,7 +81,7 @@ fs.unlinkSync(packageJsonOrigPath);
 // Now that we have packed them, call the global CLI.
 // ******************************************************************************
 
-// If Yarn is installed, clean its cache because it may have cached react-scripts
+// If Yarn is installed, clean its cache because it may have cached divi-scripts
 try {
   cp.execSync('yarn cache clean');
 } catch (e) {
@@ -94,7 +94,7 @@ const args = process.argv.slice(2);
 const craScriptPath = path.join(
   rootDir,
   'packages',
-  'create-react-app',
+  'create-divi-extension',
   'index.js'
 );
 cp.execSync(

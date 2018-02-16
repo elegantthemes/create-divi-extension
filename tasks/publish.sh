@@ -5,10 +5,10 @@
 # LICENSE file in the root directory of this source tree.
 
 # ******************************************************************************
-# This releases an update to the `react-scripts` package.
+# This releases an update to the `divi-scripts` package.
 # Don't use `npm publish` for it.
 # Read the release instructions:
-# https://github.com/facebookincubator/create-react-app/blob/master/CONTRIBUTING.md#cutting-a-release
+# https://github.com/facebookincubator/create-divi-extension/blob/master/CONTRIBUTING.md#cutting-a-release
 # ******************************************************************************
 
 # Start in tasks/ even if run from root directory
@@ -32,7 +32,7 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Compile
-cd packages/react-error-overlay/
+cd packages/divi-error-overlay/
 npm run build:prod
 cd ../..
 # Go!
