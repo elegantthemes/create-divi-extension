@@ -10711,12 +10711,13 @@ module.exports = function(module) {
 
 "use strict";
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2018-present, Elegant Themes, Inc.
+ * Copyright (c) 2015-2018, Facebook, Inc.
+ *
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 
@@ -16111,12 +16112,13 @@ function updateLink(linkElement, obj) {
 
 "use strict";
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2018-present, Elegant Themes, Inc.
+ * Copyright (c) 2015-2018, Facebook, Inc.
+ *
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 
@@ -17024,12 +17026,13 @@ if (true) {
 
 "use strict";
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2018-present, Elegant Themes, Inc.
+ * Copyright (c) 2015-2018, Facebook, Inc.
+ *
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 
@@ -17353,12 +17356,13 @@ function tryApplyUpdates(onHotUpdateSuccess) {
 "use strict";
 // @remove-on-eject-begin
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2018-present, Elegant Themes, Inc.
+ * Copyright (c) 2015-2018, Facebook, Inc.
+ *
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 // @remove-on-eject-end
 
@@ -17428,12 +17432,13 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, {
 
 "use strict";
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2018-present, Elegant Themes, Inc.
+ * Copyright (c) 2015-2018, Facebook, Inc.
+ *
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 
