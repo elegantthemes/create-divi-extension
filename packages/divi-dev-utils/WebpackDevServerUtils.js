@@ -23,7 +23,7 @@ const isInteractive = process.stdout.isTTY;
 let handleCompile;
 
 // You can safely remove this after ejecting.
-// We only use this block for testing of Create React App itself:
+// We only use this block for testing of Create Divi Extension itself:
 const isSmokeTest = process.argv.some(arg => arg.indexOf('--smoke-test') > -1);
 if (isSmokeTest) {
   handleCompile = (err, stats) => {
@@ -319,7 +319,7 @@ function prepareProxy(proxy, appPublicFolder) {
         // However we also want to respect `proxy` for API calls.
         // So if `proxy` is specified as a string, we need to decide which fallback to use.
         // We use a heuristic: We want to proxy all the requests that are not meant
-        // for static assets and as all the requests for static assets will be using 
+        // for static assets and as all the requests for static assets will be using
         // `GET` method, we can proxy all non-`GET` requests.
         // For `GET` requests, if request `accept`s text/html, we pick /index.html.
         // Modern browsers include text/html into `accept` header when navigating.

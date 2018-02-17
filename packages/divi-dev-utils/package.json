@@ -1,7 +1,7 @@
 {
   "name": "divi-dev-utils",
   "version": "5.0.0",
-  "description": "Webpack utilities used by Create React App",
+  "description": "Webpack utilities used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
   "bugs": {

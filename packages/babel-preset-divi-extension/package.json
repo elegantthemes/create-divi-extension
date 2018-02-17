@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-divi-extension",
   "version": "3.1.1",
-  "description": "Babel preset used by Create React App",
+  "description": "Babel preset used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
   "bugs": {

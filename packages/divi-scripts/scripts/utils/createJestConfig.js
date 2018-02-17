@@ -75,12 +75,12 @@ module.exports = (resolve, rootDir, isEjecting) => {
     if (unsupportedKeys.length) {
       console.error(
         chalk.red(
-          'Out of the box, Create React App only supports overriding ' +
+          'Out of the box, Create Divi Extension only supports overriding ' +
             'these Jest options:\n\n' +
             supportedKeys.map(key => chalk.bold('  \u2022 ' + key)).join('\n') +
             '.\n\n' +
             'These options in your package.json Jest configuration ' +
-            'are not currently supported by Create React App:\n\n' +
+            'are not currently supported by Create Divi Extension:\n\n' +
             unsupportedKeys
               .map(key => chalk.bold('  \u2022 ' + key))
               .join('\n') +
@@ -88,7 +88,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
             'eject from the default setup. You can do so by running ' +
             chalk.bold('npm run eject') +
             ' but remember that this is a one-way operation. ' +
-            'You may also file an issue with Create React App to discuss ' +
+            'You may also file an issue with Create Divi Extension to discuss ' +
             'supporting more options out of the box.\n'
         )
       );

@@ -4,7 +4,7 @@
   "keywords": [
     "react"
   ],
-  "description": "Create React apps with no build configuration.",
+  "description": "Create Divi Extensions with no build configuration.",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
   "engines": {
