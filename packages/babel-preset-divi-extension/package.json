@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-divi-extension",
-  "version": "3.1.1",
+  "version": "1.0.0",
   "description": "Babel preset used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
@@ -20,12 +20,7 @@
     "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-plugin-transform-react-jsx-self": "6.22.0",
     "babel-plugin-transform-react-jsx-source": "6.22.0",
-    "babel-plugin-transform-regenerator": "6.26.0",
-    "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1"
-  },
-  "peerDependencies": {
-    "babel-runtime": "^6.23.0"
   }
 }

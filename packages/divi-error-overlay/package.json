@@ -1,6 +1,6 @@
 {
   "name": "divi-error-overlay",
-  "version": "4.0.0",
+  "version": "1.0.0",
   "description": "An overlay for displaying stack frames.",
   "main": "lib/index.js",
   "scripts": {
