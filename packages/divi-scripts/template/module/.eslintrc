@@ -1,0 +1,10 @@
+{
+	"ecmaVersion": 7,
+	"sourceType": "module",
+	"ecmaFeatures": {
+		"globalReturn": true,
+		"impliedStrict": true,
+		"jsx": true,
+		"experimentalObjectRestSpread": true
+	}
+}

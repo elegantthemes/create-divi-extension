@@ -34,7 +34,7 @@
     npm -v
 
   If it is 5.x, please be aware that it has more than 50 known bugs, and
-  is not guaranteed to work with Create React App.
+  is not guaranteed to work with Create Divi Extension.
 
   If it's not starting with 4, try to install npm 4.x:
 
@@ -59,12 +59,12 @@
   There are a few common documented problems, such as watcher not detecting changes, or build failing.
   They are described in the Troubleshooting section of the User Guide:
 
-  https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting
+  https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#troubleshooting
 
   Please scan these few sections for common problems.
   Additionally, you can search the User Guide itself for something you're having issues with:
   
-  https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
+  https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md
   
   If you didn't find the solution, please share which words you searched for.
   This helps us improve documentation for future readers who might encounter the same problem.
