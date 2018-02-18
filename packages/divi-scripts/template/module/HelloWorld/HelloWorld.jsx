@@ -1,19 +1,20 @@
+// External Dependencies
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
+// Internal Dependencies
 import 'style.scss';
 
 
 class HelloWorld extends Component {
 
-	constructor( props ) {
-		super( props );
-	}
-
 	render() {
-		const props = this.props.attrs;
+		const Content = this.props.content;
 
-		return <div>{props.content}</div>;
+		return (
+			<div className="et_pb_text __prefix_hello_world">
+				<Content/>
+			</div>
+		);
 	}
 }
 

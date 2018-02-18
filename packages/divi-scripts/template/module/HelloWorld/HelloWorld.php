@@ -1,11 +1,14 @@
 <?php
 
-class __Prefix_ET_Builder_Module_HelloWorld extends ET_Builder_Module {
+
+class __Prefix_HelloWorld extends ET_Builder_Module {
+
+	public $name       = 'Hello World';
+	public $slug       = '__prefix_pb_hello_world';
+	public $vb_support = 'on';
 
 	public function init() {
-		$this->name       = esc_html__( 'Hello World', '<GETTEXT_DOMAIN>' );
-		$this->slug       = '__prefix_pb_hello_world';
-		$this->fb_support = true;
+		$this->name = esc_html__( $this->name, '<GETTEXT_DOMAIN>' );
 	}
 
 	public function get_fields() {
@@ -17,4 +20,4 @@ class __Prefix_ET_Builder_Module_HelloWorld extends ET_Builder_Module {
 	}
 }
 
-new __Prefix_ET_Builder_Module_HelloWorld();
+new __Prefix_HelloWorld;
