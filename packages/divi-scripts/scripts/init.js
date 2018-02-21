@@ -19,13 +19,15 @@ const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
 const spawn = require('divi-dev-utils/crossSpawn');
+const _ = require('lodash');
 
 module.exports = function(
   appPath,
   appName,
   verbose,
   originalDirectory,
-  template
+  template,
+  appInfo
 ) {
   const ownPackageName = require(path.join(__dirname, '..', 'package.json'))
     .name;
@@ -89,6 +91,26 @@ module.exports = function(
       }
     }
   );
+
+  const prefix = appInfo.pluginPrefix.toLowerCase();
+  const replace = {
+    __prefix: prefix,
+    __PREFIX: prefix.toUpperCase(),
+    __PluginName: _.camelCase(appName),
+    '__plugin-name': appName,
+    '<NAME>': appInfo.pluginName,
+    '<URI>': appInfo.pluginURL,
+    '<DESCRIPTION>': appInfo.pluginDescription,
+    '<AUTHOR>': appInfo.pluginAuthor,
+    '<AUTHOR_URI>': appInfo.pluginAuthorURL,
+    '<GETTEXT_DOMAIN>': `${prefix}-${appName}`,
+  };
+
+  // Rename files that have '__prefix' or '__plugin-name' in their names
+  renameFiles(appPath, replace);
+
+  // Rename variables, functions, & classes
+  renameCodeSymbols(appPath, replace);
 
   let command;
   let args;
@@ -192,4 +214,53 @@ function isReactInstalled(appPackage) {
     typeof dependencies.react !== 'undefined' &&
     typeof dependencies['react-dom'] !== 'undefined'
   );
+}
+
+function renameFiles(directory, replace) {
+  const contents = fs.readdirSync(directory);
+
+  _.forEach(contents, item => {
+    if (fs.lstatSync(item).isDirectory()) {
+      renameFiles(item, replace);
+      return; // continue
+    }
+
+    const directory = path.dirname(item);
+    const file = path.basename(item);
+
+    _.forEach(replace, (replace_with, search_for) => {
+      if (!_.includes(file, search_for)) {
+        return; // continue
+      }
+
+      const newFile = file.replace(search_for, replace_with);
+      const dest = path.join(directory, newFile);
+
+      fs.move(item, dest);
+    });
+  });
+}
+
+function renameCodeSymbols(directory, replace) {
+  const contents = fs.readdirSync(directory);
+
+  _.forEach(contents, item => {
+    if (fs.lstatSync(item).isDirectory()) {
+      renameCodeSymbols(item, replace);
+      return; // continue
+    }
+
+    let contents = fs.readFileSync(item, 'utf-8');
+    let newContents = contents;
+
+    _.forEach(replace, (replace_with, search_for) => {
+      const regex = new RegExp(search_for, 'g');
+
+      newContents = newContents.replace(regex, replace_with);
+    });
+
+    if (newContents !== contents) {
+      fs.writeFileSync(item, newContents);
+    }
+  });
 }

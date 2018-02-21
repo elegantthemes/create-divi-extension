@@ -56,4 +56,4 @@ if (major < 4) {
   process.exit(1);
 }
 
-require('./createReactApp');
+require('./createDiviExtension');

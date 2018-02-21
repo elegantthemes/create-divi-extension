@@ -50,12 +50,11 @@ const url = require('url');
 const hyperquest = require('hyperquest');
 const envinfo = require('envinfo');
 const _ = require('lodash');
-const inquirer = require('divi-dev-utils/inquirer');
 
 const packageJson = require('./package.json');
 
 let projectName;
-let appPrefix;
+let appInfo;
 
 const program = new commander.Command(packageJson.name)
   .version(packageJson.version)
@@ -215,40 +214,19 @@ function createApp(name, verbose, version, useNpm, template) {
     }
   }
 
-  askForPrefix(appName).then(answer => {
-    appPrefix = answer;
+  const scriptPath = path.resolve(
+    process.cwd(),
+    'node_modules',
+    packageName,
+    'scripts',
+    'ask.js'
+  );
+  const askQuestions = require(scriptPath);
+
+  askQuestions(appName).then(answers => {
+    appInfo = answers;
 
     run(root, appName, version, verbose, originalDirectory, template, useYarn);
-  });
-}
-
-function askForPrefix(appName) {
-  let suggestedPrefix = '';
-  let parts = appName.split('-');
-
-  if (1 === parts.length) {
-    suggestedPrefix = appName.slice(4);
-  } else if (2 === parts.length) {
-    suggestedPrefix = `${parts[0].slice(2)}${parts[1].slice(2)}`;
-  } else if (3 === parts.length) {
-    suggestedPrefix = `${parts[0].slice(2)}${parts[1].slice(1)}${parts[2].slice(
-      1
-    )}`;
-  } else {
-    _.forEach(_.take(parts, 4), part => (suggestedPrefix += part[0]));
-  }
-
-  const msg = [
-    'All variables, functions and classes should be prefixed with a unique identifier.',
-    'Prefixes prevent other plugins from overwriting your variables and accidentally',
-    'calling your functions and classes. What prefix would you like to use?',
-  ];
-
-  return inquirer.prompt({
-    type: 'input',
-    name: 'prefix',
-    message: msg.join(' '),
-    default: suggestedPrefix,
   });
 }
 
@@ -360,7 +338,7 @@ function run(
         'init.js'
       );
       const init = require(scriptsPath);
-      init(root, appName, verbose, originalDirectory, template, appPrefix);
+      init(root, appName, verbose, originalDirectory, template, appInfo);
 
       if (version === 'divi-scripts@0.9.x') {
         console.log(
