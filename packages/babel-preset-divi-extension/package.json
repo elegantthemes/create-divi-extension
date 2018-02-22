@@ -1,5 +1,5 @@
 {
-  "name": "@elegantthemes/babel-preset-divi-extension",
+  "name": "babel-preset-divi-extension",
   "version": "1.0.0-alpha",
   "description": "Babel preset used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
