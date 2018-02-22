@@ -225,7 +225,7 @@ function renameFiles(directory, replace) {
       return; // continue
     }
 
-    const directory = path.join(directory, item);
+    const filePath = path.join(directory, item);
     const file = item;
 
     _.forEach(replace, (replace_with, search_for) => {
