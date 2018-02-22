@@ -167,7 +167,7 @@ function createApp(name, verbose, version, useNpm, template) {
     process.exit(1);
   }
 
-  console.log(`Creating a new React app in ${chalk.green(root)}.`);
+  console.log(`Creating a new Divi extension in ${chalk.green(root)}.`);
   console.log();
 
   const packageJson = {
@@ -214,14 +214,7 @@ function createApp(name, verbose, version, useNpm, template) {
     }
   }
 
-  const scriptPath = path.resolve(
-    process.cwd(),
-    'node_modules',
-    packageName,
-    'scripts',
-    'ask.js'
-  );
-  const askQuestions = require(scriptPath);
+  const askQuestions = require('divi-scripts/scripts/ask.js');
 
   askQuestions(appName).then(answers => {
     appInfo = answers;

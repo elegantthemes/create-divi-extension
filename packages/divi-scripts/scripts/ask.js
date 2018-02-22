@@ -16,27 +16,23 @@ function pluginPrefixQuestion(appName) {
   let parts = appName.split('-');
 
   if (1 === parts.length) {
-    suggestedPrefix = appName.slice(4);
+    suggestedPrefix = appName.slice(0, 4);
   } else if (2 === parts.length) {
-    suggestedPrefix = `${parts[0].slice(2)}${parts[1].slice(2)}`;
+    suggestedPrefix = `${parts[0].slice(0, 2)}${parts[1].slice(0, 2)}`;
   } else if (3 === parts.length) {
-    suggestedPrefix = `${parts[0].slice(2)}${parts[1].slice(1)}${parts[2].slice(
+    suggestedPrefix = `${parts[0].slice(0, 2)}${parts[1].slice(
+      0,
       1
-    )}`;
+    )}${parts[2].slice(0, 1)}`;
   } else {
     _.forEach(_.take(parts, 4), part => (suggestedPrefix += part[0]));
   }
 
-  const msg = [
-    'All variables, functions and classes should be prefixed with a unique identifier.',
-    'Prefixes prevent other plugins from overwriting your variables and accidentally',
-    'calling your functions and classes. What prefix would you like to use?',
-  ];
-
   return {
     type: 'input',
     name: 'pluginPrefix',
-    message: msg.join(' '),
+    message:
+      'Prefix? (Unique identifier for variables, functions, and classes)',
     default: suggestedPrefix,
   };
 }
@@ -46,8 +42,7 @@ function pluginMetaDataQuestions(appName) {
     {
       type: 'input',
       name: 'pluginName',
-      message:
-        'Extension Name? (This will be the name that appears in the WP Dashboard).',
+      message: 'Extension Name? (Shown in the WP Dashboard).',
       default: appName,
     },
     {
