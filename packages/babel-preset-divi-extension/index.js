@@ -30,15 +30,6 @@ const plugins = [
       useBuiltIns: true,
     },
   ],
-  // Polyfills the runtime needed for async/await and generators
-  [
-    require.resolve('babel-plugin-transform-runtime'),
-    {
-      helpers: false,
-      polyfill: false,
-      regenerator: true,
-    },
-  ],
 ];
 
 // This is similar to how `env` works in Babel:
@@ -117,14 +108,6 @@ if (env === 'test') {
       require.resolve('babel-preset-react'),
     ],
     plugins: plugins.concat([
-      // function* () { yield 42; yield 43; }
-      [
-        require.resolve('babel-plugin-transform-regenerator'),
-        {
-          // Async functions are converted to generators by babel-preset-env
-          async: false,
-        },
-      ],
       // Adds syntax support for import()
       require.resolve('babel-plugin-syntax-dynamic-import'),
     ]),
