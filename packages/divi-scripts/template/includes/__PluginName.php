@@ -1,7 +1,7 @@
 <?php
 
 
-class __Prefix___PluginName extends DiviExtension {
+class __PREFIX___PluginName extends DiviExtension {
 
 	/**
 	 * The gettext domain for the extension's translations.
@@ -10,7 +10,7 @@ class __Prefix___PluginName extends DiviExtension {
 	 *
 	 * @var string
 	 */
-	public $gettext_domain = '__prefix___plugin_name';
+	public $gettext_domain = '<GETTEXT_DOMAIN>';
 
 	/**
 	 * The extension's WP Plugin name.
@@ -22,7 +22,7 @@ class __Prefix___PluginName extends DiviExtension {
 	public $name = '__plugin_name';
 
 	/**
-	 * __Prefix___PluginName constructor.
+	 * __PREFIX___PluginName constructor.
 	 *
 	 * @param string $name
 	 * @param array  $args
@@ -34,4 +34,4 @@ class __Prefix___PluginName extends DiviExtension {
 	}
 }
 
-new __Prefix___PluginName;
+new __PREFIX___PluginName;

@@ -92,12 +92,25 @@ module.exports = function(
     }
   );
 
+  fs.move(
+    path.join(appPath, 'styles', 'gitignore'),
+    path.join(appPath, 'styles', '.gitignore')
+  );
+  fs.move(
+    path.join(appPath, 'scripts', 'gitignore'),
+    path.join(appPath, 'scripts', '.gitignore')
+  );
+  fs.move(
+    path.join(appPath, 'languages', 'gitignore'),
+    path.join(appPath, 'languages', '.gitignore')
+  );
+
   const prefix = appInfo.pluginPrefix.toLowerCase();
   const replace = {
     __prefix: prefix,
     __PREFIX: prefix.toUpperCase(),
-    __PluginName: _.camelCase(appName),
-    '__plugin-name': appName,
+    __PluginName: _.startCase(appName).replace(/ /g, ''),
+    __plugin_name: appName,
     '<NAME>': appInfo.pluginName,
     '<URI>': appInfo.pluginURL,
     '<DESCRIPTION>': appInfo.pluginDescription,
@@ -222,23 +235,28 @@ function renameFiles(directory, replace) {
   _.forEach(contents, item => {
     item = path.join(directory, item);
 
+    if (_.includes(item, 'node_modules')) {
+      return; // continue
+    }
+
     if (fs.lstatSync(item).isDirectory()) {
       renameFiles(item, replace);
       return; // continue
     }
 
     const file = path.basename(item);
+    const matches = file.match(/__(\w+|_)/g);
 
-    _.forEach(replace, (replace_with, search_for) => {
-      if (!_.includes(file, search_for)) {
-        return; // continue
-      }
+    let newFile = file;
 
-      const newFile = file.replace(search_for, replace_with);
-      const dest = path.join(directory, newFile);
-
-      fs.move(item, dest);
+    _.forEach(matches, match => {
+      newFile = newFile.replace(match, replace[match]);
     });
+
+    if (newFile !== file) {
+      const dest = path.join(directory, newFile);
+      fs.move(item, dest);
+    }
   });
 }
 
@@ -247,6 +265,10 @@ function renameCodeSymbols(directory, replace) {
 
   _.forEach(contents, item => {
     item = path.join(directory, item);
+
+    if (_.includes(item, 'node_modules')) {
+      return; // continue
+    }
 
     if (fs.lstatSync(item).isDirectory()) {
       renameCodeSymbols(item, replace);
