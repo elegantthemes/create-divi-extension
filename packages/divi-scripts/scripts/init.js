@@ -220,13 +220,14 @@ function renameFiles(directory, replace) {
   const contents = fs.readdirSync(directory);
 
   _.forEach(contents, item => {
+    item = path.join(directory, item);
+
     if (fs.lstatSync(item).isDirectory()) {
       renameFiles(item, replace);
       return; // continue
     }
 
-    const filePath = path.join(directory, item);
-    const file = item;
+    const file = path.basename(item);
 
     _.forEach(replace, (replace_with, search_for) => {
       if (!_.includes(file, search_for)) {
@@ -245,6 +246,8 @@ function renameCodeSymbols(directory, replace) {
   const contents = fs.readdirSync(directory);
 
   _.forEach(contents, item => {
+    item = path.join(directory, item);
+
     if (fs.lstatSync(item).isDirectory()) {
       renameCodeSymbols(item, replace);
       return; // continue
