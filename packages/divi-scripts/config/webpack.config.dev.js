@@ -118,7 +118,7 @@ module.exports = {
   externals: {
     jquery: 'jQuery',
     react: 'React',
-    reactDOM: 'ReactDOM',
+    'react-dom': 'ReactDOM',
   },
   module: {
     strictExportPresence: true,
