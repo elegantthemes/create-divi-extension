@@ -84,7 +84,7 @@ module.exports = {
 
 This Webpack plugin ensures `npm install <library>` forces a project rebuild.<br>
 We’re not sure why this isn't Webpack's default behavior.<br>
-See [#186](https://github.com/facebookincubator/create-react-app/issues/186) for details.
+See [#186](https://github.com/facebook/create-react-app/issues/186) for details.
 
 ```js
 var path = require('path');
@@ -98,7 +98,7 @@ module.exports = {
     // If you require a missing module and then `npm install` it, you still have
     // to restart the development server for Webpack to discover it. This plugin
     // makes the discovery automatic so you don't have to restart.
-    // See https://github.com/facebookincubator/create-react-app/issues/186
+    // See https://github.com/facebook/create-react-app/issues/186
     new WatchMissingNodeModulesPlugin(path.resolve('node_modules'))
   ],
   // ...
