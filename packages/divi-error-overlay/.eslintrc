@@ -1,5 +1,5 @@
 {
-  "extends": "react-app",
+  "extends": "divi-extension",
   "rules": {
     "curly": "warn"
   }

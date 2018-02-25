@@ -36,7 +36,7 @@ module.exports = {
               options: {
                 babelrc: false,
                 compact: false,
-                presets: ['babel-preset-react-app/dependencies'],
+                presets: ['babel-preset-divi-extension/dependencies'],
               },
             },
           },

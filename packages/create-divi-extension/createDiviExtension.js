@@ -51,7 +51,7 @@ const hyperquest = require('hyperquest');
 const envinfo = require('envinfo');
 const _ = require('lodash');
 const os = require('os');
-const findMonorepo = require('react-dev-utils/workspaceUtils').findMonorepo;
+const findMonorepo = require('divi-dev-utils/workspaceUtils').findMonorepo;
 const packageJson = require('./package.json');
 
 // These files should be allowed to remain on a failed install,

@@ -58,7 +58,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 // We require that you explictly set browsers and do not fall back to
 // browserslist defaults.
-const { checkBrowsers } = require('react-dev-utils/browsersHelper');
+const { checkBrowsers } = require('divi-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath)
   .then(() => {
     // First, read the current file sizes in build directory.
