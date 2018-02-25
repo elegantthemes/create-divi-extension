@@ -117,6 +117,7 @@ module.exports = {
   },
   externals: {
     jquery: 'jQuery',
+    underscore: '_',
     react: 'React',
     'react-dom': 'ReactDOM',
   },
