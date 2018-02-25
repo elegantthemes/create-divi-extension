@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-divi-extension",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "ESLint configuration used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
@@ -19,6 +19,6 @@
     "eslint-plugin-react": "^7.1.0"
   },
   "dependencies": {
-    "confusing-browser-globals": "^1.0.0"
+    "confusing-browser-globals": "^1.0.1-0"
   }
 }

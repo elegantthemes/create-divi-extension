@@ -1,6 +1,6 @@
 {
   "name": "divi-error-overlay",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "An overlay for displaying stack frames.",
   "main": "lib/index.js",
   "scripts": {
@@ -43,7 +43,7 @@
     "chokidar": "^2.0.0",
     "cross-env": "5.1.3",
     "eslint": "4.15.0",
-    "eslint-config-divi-extension": "^1.0.0-alpha.4",
+    "eslint-config-divi-extension": "^1.0.0-alpha.5",
     "eslint-plugin-flowtype": "2.41.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
