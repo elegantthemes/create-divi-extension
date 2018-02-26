@@ -26,7 +26,7 @@ It works in tandem with [HtmlWebpackPlugin](https://github.com/ampedandwired/htm
 ```js
 var path = require('path');
 var HtmlWebpackPlugin = require('html-dev-plugin');
-var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+var InterpolateHtmlPlugin = require('divi-dev-utils/InterpolateHtmlPlugin');
 
 // Webpack config
 var publicUrl = '/my-custom-url';
@@ -63,7 +63,7 @@ This Webpack plugin ensures that relative imports from app's source directory do
 
 ```js
 var path = require('path');
-var ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+var ModuleScopePlugin = require('divi-dev-utils/ModuleScopePlugin');
 
 
 module.exports = {
@@ -88,7 +88,7 @@ See [#186](https://github.com/facebook/create-react-app/issues/186) for details.
 
 ```js
 var path = require('path');
-var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+var WatchMissingNodeModulesPlugin = require('divi-dev-utils/WatchMissingNodeModulesPlugin');
 
 // Webpack config
 module.exports = {
@@ -113,7 +113,7 @@ If a file is not found, prints a warning message and returns `false`.
 
 ```js
 var path = require('path');
-var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
+var checkRequiredFiles = require('divi-dev-utils/checkRequiredFiles');
 
 if (!checkRequiredFiles([
   path.resolve('public/index.html'),
@@ -128,7 +128,7 @@ if (!checkRequiredFiles([
 Clears the console, hopefully in a cross-platform way.
 
 ```js
-var clearConsole = require('react-dev-utils/clearConsole');
+var clearConsole = require('divi-dev-utils/clearConsole');
 
 clearConsole();
 console.log('Just cleared the screen!');
@@ -140,7 +140,7 @@ This is our custom ESLint formatter that integrates well with Create Divi Extens
 You can use the default one instead if you prefer so.
 
 ```js
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const eslintFormatter = require('divi-dev-utils/eslintFormatter');
 
 // In your webpack config:
 // ...
@@ -178,7 +178,7 @@ Prints the JS and CSS asset sizes after the build, and includes a size compariso
 var {
   measureFileSizesBeforeBuild,
   printFileSizesAfterBuild,
-} = require('react-dev-utils/FileSizeReporter');
+} = require('divi-dev-utils/FileSizeReporter');
 
 measureFileSizesBeforeBuild(buildFolder).then(previousFileSizes => {
   return cleanAndRebuild().then(webpackStats => {
@@ -194,7 +194,7 @@ Extracts and prettifies warning and error messages from webpack [stats](https://
 ```js
 var webpack = require('webpack');
 var config = require('../config/webpack.config.dev');
-var formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+var formatWebpackMessages = require('divi-dev-utils/formatWebpackMessages');
 
 var compiler = webpack(config);
 
@@ -226,7 +226,7 @@ Prettify some known build errors.
 Pass an Error object to log a prettified error message in the console.
 
 ```
-  const printBuildError = require('react-dev-utils/printBuildError')
+  const printBuildError = require('divi-dev-utils/printBuildError')
   try {
     build()
   } catch(e) {
@@ -245,7 +245,7 @@ in /Users/developer/create-react-app
 ```
 
 ```js
-var getProcessForPort = require('react-dev-utils/getProcessForPort');
+var getProcessForPort = require('divi-dev-utils/getProcessForPort');
 
 getProcessForPort(3000);
 ```
@@ -267,7 +267,7 @@ Otherwise, falls back to [opn](https://github.com/sindresorhus/opn) behavior.
 
 ```js
 var path = require('path');
-var openBrowser = require('react-dev-utils/openBrowser');
+var openBrowser = require('divi-dev-utils/openBrowser');
 
 if (openBrowser('http://localhost:3000')) {
   console.log('The browser tab has been opened!');
@@ -320,7 +320,7 @@ module.exports = {
     // stock client:
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
-    'react-dev-utils/webpackHotDevClient',
+    'divi-dev-utils/webpackHotDevClient',
     'src/index'
   ],
   // ...

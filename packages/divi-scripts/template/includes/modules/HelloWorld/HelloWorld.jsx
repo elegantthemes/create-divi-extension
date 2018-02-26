@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Internal Dependencies
-import 'style.scss';
+import './style.scss';
 
 
 class HelloWorld extends Component {
