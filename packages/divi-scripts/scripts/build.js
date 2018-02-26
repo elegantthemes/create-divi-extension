@@ -165,6 +165,7 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
+      // Create stylesheet for use with the DBP
       const css = fs.readFileSync(
         path.join(paths.appBuild, 'styles', 'style.min.css'),
         'utf-8'

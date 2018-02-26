@@ -173,7 +173,7 @@ module.exports = {
           },
         ],
         include: paths.srcPaths,
-        exclude: [/[/\\\\]node_modules[/\\\\]/],
+        exclude: [/[/\\\\]node_modules|scripts[/\\\\]/],
       },
       {
         // "oneOf" will traverse all following loaders until one will
