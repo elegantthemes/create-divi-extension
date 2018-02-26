@@ -26,6 +26,7 @@ along with <NAME>. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
 
+if ( ! function_exists( '__prefix_initialize_extension' ) ):
 /**
  * Creates the extensions main class instance.
  *
@@ -35,3 +36,4 @@ function __prefix_initialize_extension() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/__PluginName.php';
 }
 add_action( 'divi_extensions_init', '__prefix_initialize_extension' );
+endif;

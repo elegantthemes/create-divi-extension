@@ -1,6 +1,6 @@
 <?php
 
-if ( ! class_exists( 'ET_Builder_Module' ) ) {
+if ( ! class_exists( 'ET_Builder_Element' ) ) {
 	return;
 }
 

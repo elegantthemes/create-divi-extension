@@ -7,7 +7,10 @@
 /coverage
 
 # production
-/build
+/scripts/bundle.min.js
+/styles/bundle.min.css
+asset-manifest.json
+*.map
 
 # misc
 .DS_Store
