@@ -42,6 +42,8 @@ const printHostingInstructions = require('divi-dev-utils/printHostingInstruction
 const FileSizeReporter = require('divi-dev-utils/FileSizeReporter');
 const printBuildError = require('divi-dev-utils/printBuildError');
 const { printBrowsers } = require('divi-dev-utils/browsersHelper');
+const prefixer = require('postcss-prefix-selector');
+const postcss = require('postcss');
 
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
@@ -162,6 +164,34 @@ function build(previousFileSizes) {
         );
         return reject(new Error(messages.warnings.join('\n\n')));
       }
+
+      const css = fs.readFileSync(
+        path.join(paths.appBuild, 'styles', 'style.min.css'),
+        'utf-8'
+      );
+      const out = postcss()
+        .use(
+          prefixer({
+            prefix: '.et_divi_builder #et_builder_outer_content',
+            exclude: [],
+
+            // Optional transform callback for case-by-case overrides
+            /*transform: function(prefix, selector, prefixedSelector) {
+          if (selector === 'body') {
+            return 'body.' + prefix;
+          } else {
+            return prefixedSelector;
+          }
+        }*/
+          })
+        )
+        .process(css).css;
+
+      fs.writeFileSync(
+        path.join(paths.appBuild, 'styles', 'style-dbp.min.css'),
+        out
+      );
+
       return resolve({
         stats,
         previousFileSizes,
