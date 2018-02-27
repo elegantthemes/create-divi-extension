@@ -4,7 +4,7 @@ if ( ! class_exists( 'ET_Builder_Element' ) ) {
 	return;
 }
 
-$module_files = glob( __DIR__ . '/modules/*/*.php', GLOB_ONLYDIR );
+$module_files = glob( __DIR__ . '/modules/*/*.php' );
 
 // Load custom Divi Builder modules
 foreach ( (array) $module_files as $module_file ) {
