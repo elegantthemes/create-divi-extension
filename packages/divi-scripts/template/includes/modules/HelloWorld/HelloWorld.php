@@ -1,6 +1,5 @@
 <?php
 
-
 class __PREFIX_HelloWorld extends ET_Builder_Module {
 
 	public $name       = 'Hello World';

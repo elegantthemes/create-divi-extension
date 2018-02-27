@@ -15,7 +15,7 @@
   },
   "files": [
     "index.js",
-    "createReactApp.js"
+    "createDiviExtension.js"
   ],
   "bin": {
     "create-divi-extension": "./index.js"
