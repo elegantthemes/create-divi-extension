@@ -223,13 +223,7 @@ function createApp(name, verbose, version, useNpm, template) {
     }
   }
 
-  const askQuestions = require('divi-scripts/scripts/ask.js');
-
-  askQuestions(appName).then(answers => {
-    appInfo = answers;
-
-    run(root, appName, version, verbose, originalDirectory, template, useYarn);
-  });
+  run(root, appName, version, verbose, originalDirectory, template, useYarn);
 }
 
 function isYarnAvailable() {
@@ -337,24 +331,37 @@ function run(
       checkNodeVersion(packageName);
       setCaretRangeForRuntimeDeps(packageName);
 
-      const scriptsPath = path.resolve(
+      const askScriptPath = path.resolve(
         process.cwd(),
         'node_modules',
         packageName,
         'scripts',
-        'init.js'
+        'ask.js'
       );
-      const init = require(scriptsPath);
-      init(root, appName, verbose, originalDirectory, template, appInfo);
+      const askQuestions = require(askScriptPath);
 
-      if (version === 'divi-scripts@0.9.x') {
-        console.log(
-          chalk.yellow(
-            `\nNote: the project was boostrapped with an old unsupported version of tools.\n` +
-              `Please update to Node >=6 and npm >=3 to get supported tools in new projects.\n`
-          )
+      askQuestions(appName).then(answers => {
+        appInfo = answers;
+
+        const scriptsPath = path.resolve(
+          process.cwd(),
+          'node_modules',
+          packageName,
+          'scripts',
+          'init.js'
         );
-      }
+        const init = require(scriptsPath);
+        init(root, appName, verbose, originalDirectory, template, appInfo);
+
+        if (version === 'divi-scripts@0.9.x') {
+          console.log(
+            chalk.yellow(
+              `\nNote: the project was boostrapped with an old unsupported version of tools.\n` +
+                `Please update to Node >=6 and npm >=3 to get supported tools in new projects.\n`
+            )
+          );
+        }
+      });
     })
     .catch(reason => {
       console.log();

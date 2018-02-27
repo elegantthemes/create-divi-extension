@@ -153,10 +153,6 @@ module.exports = function(
     path.join(appPath, 'styles', '.gitignore')
   );
   fs.move(
-    path.join(appPath, 'scripts', 'gitignore'),
-    path.join(appPath, 'scripts', '.gitignore')
-  );
-  fs.move(
     path.join(appPath, 'languages', 'gitignore'),
     path.join(appPath, 'languages', '.gitignore')
   );

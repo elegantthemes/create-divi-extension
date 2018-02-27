@@ -43,7 +43,7 @@ function pluginMetaDataQuestions(appName) {
       type: 'input',
       name: 'pluginName',
       message: 'Extension Name? (Shown in the WP Dashboard).',
-      default: appName,
+      default: _.startCase(appName),
     },
     {
       type: 'input',
