@@ -22,7 +22,7 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your extension
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
 <p align='center'>
-<img src='screencast.svg?raw=true' width='600' alt='npx create-divi-extension my-extension'>
+<img src='./screencast.svg' width='600' alt='npx create-divi-extension my-extension'/>
 </p>
 
 ### Get Started Immediately
