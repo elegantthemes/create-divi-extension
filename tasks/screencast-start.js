@@ -47,12 +47,12 @@ function main(cli) {
   cp.on('exit', e => {
     const elapsed = Date.now() - start;
 
-    if (elapsed >= duration) {
-      return;
-    }
-
-    setTimeout(() => {
+    if (elapsed <= duration) {
+      setTimeout(() => {
+        process.exit(e.code);
+      }, duration - elapsed);
+    } else {
       process.exit(e.code);
-    }, duration - elapsed);
+    }
   });
 }

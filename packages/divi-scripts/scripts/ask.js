@@ -2,11 +2,17 @@
 const _ = require('lodash');
 const inquirer = require('divi-dev-utils/inquirer');
 
-module.exports = appName => {
+module.exports = (appName, skip) => {
   const questions = [
     ...pluginMetaDataQuestions(appName),
     pluginPrefixQuestion(appName),
   ];
+
+  if (skip) {
+    return Promise.resolve(
+      _.transform(questions, (res, obj) => (res[obj.name] = obj.default), {})
+    );
+  }
 
   return inquirer.prompt(questions);
 };

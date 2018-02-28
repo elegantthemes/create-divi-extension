@@ -69,7 +69,7 @@ then
   npm cache clean || npm cache verify
 fi
 
-# Bootstrap create-react-app monorepo
+# Bootstrap create-divi-extension monorepo
 yarn
 
 # Start local registry
@@ -125,10 +125,10 @@ yarn start --smoke-test
 verifyTest
 
 # ******************************************************************************
-# Test create-react-app inside workspace
+# Test create-divi-extension inside workspace
 # ******************************************************************************
-# npx create-react-app --internal-testing-template="$root_path"/packages/react-scripts/fixtures/yarn-ws/ws/cra-app1 cra-app2
-# -- above needs https://github.com/facebookincubator/create-react-app/pull/3435 to user create-react-app
+# npx create-divi-extension --internal-testing-template="$root_path"/packages/react-scripts/fixtures/yarn-ws/ws/cra-app1 cra-app2
+# -- above needs https://github.com/facebookincubator/create-divi-extension/pull/3435 to user create-divi-extension
 popd
 
 # Cleanup

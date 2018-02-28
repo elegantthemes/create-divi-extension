@@ -13,6 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const execa = require('execa');
 const tempy = require('tempy');
+const _ = require('lodash');
 
 main();
 
@@ -24,10 +25,20 @@ function main() {
   const script = path.join(__dirname, 'screencast.sh');
   const out = path.join(previous, 'screencast.svg');
 
-  const resolveLine = l => l.indexOf('🔍  Resolving packages...') > -1;
-  const fetchLine = l => l.indexOf('🚚  Fetching packages...') > -1;
-  const countLine = l => l.match(/Saved [0-9]+ new dependencies/);
-  const doneLine = l => l.indexOf('✨  Done in') > -1;
+  const resolveLine = l => l.indexOf('Resolving packages...') > -1;
+  const fetchLine = l => l.indexOf('Fetching packages...') > -1;
+  const countLine = l => l.match(/.*Saved [0-9]+ new dependencies.*/);
+  const doneLine = l => l.indexOf('└─ yargs@') > -1;
+  const firstQuestionLine = l => l.indexOf('Extension Name?') > -1;
+  const lastQuestionLine = l => l.indexOf('Prefix?') > -1;
+
+  const linesToRemove = [
+    'No lockfile found.',
+    'is incompatible with this module',
+    'failed compatibility check',
+    'has incorrect peer dependency',
+    '--scripts-version',
+  ];
 
   try {
     process.chdir(cwd);
@@ -40,9 +51,15 @@ function main() {
     console.log('Cleaning data ...');
     const data = require(cast);
 
+    removeLines(data.stdout, linesToRemove);
     cut(data.stdout, { start: resolveLine, end: fetchLine });
     cut(data.stdout, { start: countLine, end: doneLine });
-    replace(data.stdout, [{ in: cwd, out: '~' }]);
+    replace(data.stdout, [{ in: cwd, out: '~/wordpress/wp-content/plugins' }]);
+    move(data.stdout, {
+      start: firstQuestionLine,
+      end: lastQuestionLine,
+      moveTo: countLine,
+    });
 
     fs.writeFileSync(cast, JSON.stringify(data, null, '  '));
 
@@ -67,6 +84,36 @@ function cut(frames, { start, end }) {
   }
 
   frames.splice(si + 1, ei - si - 1);
+}
+
+function move(lines, { start, end, moveTo }) {
+  const si = lines.findIndex(([, l]) => start(l));
+  const ei = lines.findIndex(([, l]) => end(l));
+  const mt = lines.findIndex(([, l]) => moveTo(l));
+
+  if (si === -1 || ei === -1) {
+    return;
+  }
+
+  const linesToMove = lines.slice(si, ei + 2);
+
+  lines.splice(si, ei - si + 1);
+  lines.splice(mt + 1, 0, ...linesToMove);
+}
+
+function removeLines(lines, linesToRemove) {
+  _.remove(lines, ([, line]) => {
+    let remove = false;
+
+    _.forEach(linesToRemove, pattern => {
+      if (_.includes(line, pattern)) {
+        remove = true;
+        return false; // break
+      }
+    });
+
+    return remove;
+  });
 }
 
 function replace(frames, replacements) {

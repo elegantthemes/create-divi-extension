@@ -64,6 +64,7 @@ const errorLogFilePatterns = [
 
 let projectName;
 let appInfo;
+let skipQuestions;
 
 const program = new commander.Command(packageJson.name)
   .version(packageJson.version)
@@ -79,6 +80,7 @@ const program = new commander.Command(packageJson.name)
     'use a non-standard version of divi-scripts'
   )
   .option('--use-npm')
+  .option('--skip-questions')
   .allowUnknownOption()
   .on('--help', () => {
     console.log(`    Only ${chalk.green('<project-directory>')} is required.`);
@@ -117,6 +119,8 @@ const program = new commander.Command(packageJson.name)
     console.log();
   })
   .parse(process.argv);
+
+skipQuestions = program.skipQuestions;
 
 if (typeof projectName === 'undefined') {
   if (program.info) {
@@ -340,8 +344,12 @@ function run(
       );
       const askQuestions = require(askScriptPath);
 
-      askQuestions(appName).then(answers => {
+      console.log();
+
+      askQuestions(appName, skipQuestions).then(answers => {
         appInfo = answers;
+
+        console.log();
 
         const scriptsPath = path.resolve(
           process.cwd(),
