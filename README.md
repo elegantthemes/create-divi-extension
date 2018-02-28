@@ -22,7 +22,7 @@ Then open your WordPress site to see your extension.<br>
 When you’re ready to deploy to production, create a minified bundle with `yarn build`.
 
 <p align='center'>
-<img src='./screencast.svg' width='888' alt='npx create-divi-extension my-extension'/>
+<img src='./screencast.svg' width='750' alt='npx create-divi-extension my-extension'/>
 </p>
 
 ### Get Started Immediately
@@ -86,7 +86,7 @@ The page will automatically reload if you make changes to the code.<br>
 You will see the build errors and lint warnings in the console.
 
 <p align='center'>
-<img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='600' alt='Build errors'>
+<img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='750' alt='Build errors'>
 </p>
 
 ### `npm test` or `yarn test`
