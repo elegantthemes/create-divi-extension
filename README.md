@@ -12,17 +12,17 @@ If something doesn’t work, please [file an issue](https://github.com/elegantth
 
 ```sh
 npx create-divi-extension my-extension
-cd my-app
-npm start
+cd my-extension
+yarn start
 ```
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
-Then open [http://localhost:3000/](http://localhost:3000/) to see your extension.<br>
-When you’re ready to deploy to production, create a minified bundle with `npm run build`.
+Then open your WordPress site to see your extension.<br>
+When you’re ready to deploy to production, create a minified bundle with `yarn build`.
 
 <p align='center'>
-<img src='./screencast.svg' width='600' alt='npx create-divi-extension my-extension'/>
+<img src='./screencast.svg' width='888' alt='npx create-divi-extension my-extension'/>
 </p>
 
 ### Get Started Immediately
@@ -39,39 +39,40 @@ Just create a project, and you’re good to go.
 To create a new extension, run a single command:
 
 ```sh
-npx create-divi-extension my-app
+npx create-divi-extension my-extension
 ```
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
-It will create a directory called `my-app` inside the current folder.<br>
+It will create a directory called `my-extension` inside the current directory.<br>
 Inside that directory, it will generate the initial project structure and install the transitive dependencies:
 
 ```
-my-app
-├── README.md
+my-extension
+├── includes
+│   ├── modules
+│   │   └── HelloWorld
+│   │       ├── HelloWorld.jsx
+│   │       ├── HelloWorld.php
+│   │       └── style.css
+│   ├── loader.js
+│   ├── loader.php
+│   └── MyExtension.php
+├── languages
 ├── node_modules
+├── scripts
+│   └── frontend.js
+├── styles
+├── myex-my-extension.php
 ├── package.json
-├── .gitignore
-├── public
-│   └── favicon.ico
-│   └── index.html
-│   └── manifest.json
-└── src
-    └── App.css
-    └── App.js
-    └── App.test.js
-    └── index.css
-    └── index.js
-    └── logo.svg
-    └── registerServiceWorker.js
+└── README.md
 ```
 
 No configuration or complicated folder structures, just the files you need to build your extension.<br>
 Once the installation is done, you can open your project folder:
 
 ```sh
-cd my-app
+cd my-extension
 ```
 
 Inside the newly created project, you can run some built-in commands:
@@ -79,7 +80,7 @@ Inside the newly created project, you can run some built-in commands:
 ### `npm start` or `yarn start`
 
 Runs the extension in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open your WordPress website to view it.
 
 The page will automatically reload if you make changes to the code.<br>
 You will see the build errors and lint warnings in the console.
@@ -100,7 +101,7 @@ By default, runs tests related to files changed since the last commit.
 Builds the extension for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
+The build is minified.<br>
 By default, it also [includes a service worker](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app) so that your extension loads from local cache on future visits.
 
 Your extension is ready to be deployed.
