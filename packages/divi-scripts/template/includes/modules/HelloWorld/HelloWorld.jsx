@@ -11,9 +11,9 @@ class HelloWorld extends Component {
     const Content = this.props.content;
 
     return (
-      <div className="et_pb_text __prefix_hello_world">
+      <h1>
         <Content/>
-      </div>
+      </h1>
     );
   }
 }

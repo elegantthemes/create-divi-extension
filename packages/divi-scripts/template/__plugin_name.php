@@ -28,7 +28,7 @@ along with <NAME>. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 
 if ( ! function_exists( '__prefix_initialize_extension' ) ):
 /**
- * Creates the extensions main class instance.
+ * Creates the extension's main class instance.
  *
  * @since 1.0.0
  */
