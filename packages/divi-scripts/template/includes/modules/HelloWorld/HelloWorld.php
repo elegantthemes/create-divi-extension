@@ -11,7 +11,7 @@ class __PREFIX_HelloWorld extends ET_Builder_Module {
 
 	public function get_fields() {
 		return array(
-			'content_new' => array(
+			'content' => array(
 				'label'           => esc_html__( 'Content', '<GETTEXT_DOMAIN>' ),
 				'type'            => 'tiny_mce',
 				'option_category' => 'basic_option',
@@ -22,7 +22,7 @@ class __PREFIX_HelloWorld extends ET_Builder_Module {
 	}
 
 	public function render( $attrs, $content = null, $render_slug ) {
-		return sprintf( '<h1>%1$s</h1>', $this->props->content_new );
+		return sprintf( '<h1>%1$s</h1>', $this->props['content'] );
 	}
 }
 

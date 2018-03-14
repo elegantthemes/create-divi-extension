@@ -63,7 +63,7 @@ my-extension
 ├── scripts
 │   └── frontend.js
 ├── styles
-├── myex-my-extension.php
+├── my-extension.php
 ├── package.json
 └── README.md
 ```
