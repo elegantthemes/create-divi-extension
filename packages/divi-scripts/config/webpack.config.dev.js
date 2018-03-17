@@ -20,6 +20,7 @@ const eslintFormatter = require('divi-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('divi-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const glob = require('divi-dev-utils/glob');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -77,7 +78,34 @@ module.exports = {
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
     ],
-    frontend: path.join(paths.appPath, 'scripts', 'frontend.js'),
+    frontend: [
+      // Include all unminified css files found in the 'styles' directory.
+      ...glob.sync([
+        `${paths.appStyles}/**/*.css`,
+        `!${paths.appStyles}/**/*.min.css`,
+      ]),
+      // Include all unminified css files found in the 'includes' directory that aren't next to a javascript file.
+      ...glob.sync(
+        [`${paths.appSrc}/**/*.css`, `!${paths.appSrc}/**/*.min.css`],
+        {
+          transform: file => {
+            const dir = path.dirname(file);
+            const results = glob.sync([`${dir}/*.jsx?`]);
+
+            if (results.length > 0) {
+              file = '';
+            }
+
+            return file;
+          },
+        }
+      ),
+      // Include all unminified javascript files found in the 'scripts' directory.
+      ...glob.sync([
+        `${paths.appScripts}/**/*.js`,
+        `!${paths.appScripts}/**/*.min.js`,
+      ]),
+    ],
   },
   output: {
     // Add /* filename */ comments to generated require()s in the output.

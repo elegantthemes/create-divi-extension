@@ -22,6 +22,7 @@ const eslintFormatter = require('divi-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('divi-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const glob = require('divi-dev-utils/glob');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -83,7 +84,34 @@ module.exports = {
   // In production, we only want to load the polyfills and the app code.
   entry: {
     builder: [require.resolve('./polyfills'), paths.appIndexJs],
-    frontend: path.join(paths.appPath, 'scripts', 'frontend.js'),
+    frontend: [
+      // Include all unminified css files found in the 'styles' directory.
+      ...glob.sync([
+        `${paths.appStyles}/**/*.css`,
+        `!${paths.appStyles}/**/*.min.css`,
+      ]),
+      // Include all unminified css files found in the 'includes' directory that aren't next to a javascript file.
+      ...glob.sync(
+        [`${paths.appSrc}/**/*.css`, `!${paths.appSrc}/**/*.min.css`],
+        {
+          transform: file => {
+            const dir = path.dirname(file);
+            const results = glob.sync([`${dir}/*.jsx?`]);
+
+            if (results.length > 0) {
+              file = '';
+            }
+
+            return file;
+          },
+        }
+      ),
+      // Include all unminified javascript files found in the 'scripts' directory.
+      ...glob.sync([
+        `${paths.appScripts}/**/*.js`,
+        `!${paths.appScripts}/**/*.min.js`,
+      ]),
+    ],
   },
   output: {
     // The build folder.
