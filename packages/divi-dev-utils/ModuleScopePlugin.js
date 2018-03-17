@@ -13,7 +13,7 @@ const path = require('path');
 
 class ModuleScopePlugin {
   constructor(appSrc, allowedFiles = []) {
-    this.appSrc = appSrc;
+    this.appSrc = path.dirname(appSrc);
     this.allowedFiles = new Set(allowedFiles);
   }
 
