@@ -122,7 +122,7 @@ export BROWSERSLIST='ie 9'
 npm link "$temp_module_path/node_modules/test-integrity"
 
 # Test the build
-REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   NODE_PATH=src \
   PUBLIC_URL=http://www.example.org/spa/ \
   yarn build
@@ -132,7 +132,7 @@ exists build/*.html
 exists build/static/js/main.*.js
 
 # Unit tests
-REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   CI=true \
   NODE_PATH=src \
   NODE_ENV=test \
@@ -141,14 +141,14 @@ REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
 # Prepare "development" environment
 tmp_server_log=`mktemp`
 PORT=3001 \
-  REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+  DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   NODE_PATH=src \
   nohup yarn start &>$tmp_server_log &
 grep -q 'You can now view' <(tail -f $tmp_server_log)
 
 # Test "development" environment
 E2E_URL="http://localhost:3001" \
-  REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+  DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   CI=true NODE_PATH=src \
   NODE_ENV=development \
   BABEL_ENV=test \
@@ -173,7 +173,7 @@ echo yes | npm run eject
 npm link "$temp_module_path/node_modules/test-integrity"
 
 # Test the build
-REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   NODE_PATH=src \
   PUBLIC_URL=http://www.example.org/spa/ \
   yarn build
@@ -183,7 +183,7 @@ exists build/*.html
 exists build/static/js/main.*.js
 
 # Unit tests
-REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   CI=true \
   NODE_PATH=src \
   NODE_ENV=test \
@@ -192,12 +192,12 @@ REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
 # Test "development" environment
 tmp_server_log=`mktemp`
 PORT=3002 \
-  REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+  DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   NODE_PATH=src \
   nohup yarn start &>$tmp_server_log &
 grep -q 'You can now view' <(tail -f $tmp_server_log)
 E2E_URL="http://localhost:3002" \
-  REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
+  DIVI_EXTENSION_SHELL_ENV_MESSAGE=fromtheshell \
   CI=true NODE_PATH=src \
   NODE_ENV=development \
   BABEL_ENV=test \

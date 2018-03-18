@@ -1,4 +1,4 @@
-# Create Divi Extension [![Build Status](https://travis-ci.org/elegantthemes/create-divi-extension.svg?branch=master)](https://travis-ci.org/elegantthemes/create-divi-extension)
+# Create Divi Extension [![CircleCI](https://circleci.com/gh/elegantthemes/create-divi-extension.svg?style=svg&circle-token=ddc0b9a9a293feba2cb9dce3d23282b83ed4133c)](https://circleci.com/gh/elegantthemes/create-divi-extension)
 
 Create Divi Extensions with no build configuration.
 
@@ -34,7 +34,7 @@ Just create a project, and you’re good to go.
 
 ## Creating an Extension
 
-**You’ll need to have Node >= 6 on your local development machine** (but it’s not required on the server). You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to easily switch Node versions between different projects.
+**You’ll need to have Node >= 6 on your local development machine**.
 
 To create a new extension, run a single command:
 
@@ -89,21 +89,12 @@ You will see the build errors and lint warnings in the console.
 <img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='750' alt='Build errors'>
 </p>
 
-### `npm test` or `yarn test`
-
-Runs the test watcher in an interactive mode.<br>
-By default, runs tests related to files changed since the last commit.
-
-[Read more about testing.](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#running-tests)
-
 ### `npm run build` or `yarn build`
 
 Builds the extension for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified.<br>
-By default, it also [includes a service worker](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app) so that your extension loads from local cache on future visits.
-
 Your extension is ready to be deployed.
 
 ## User Guide
@@ -119,42 +110,23 @@ The [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/mas
 - [Displaying Lint Output in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#displaying-lint-output-in-the-editor)
 - [Formatting Code Automatically](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically)
 - [Debugging in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#debugging-in-the-editor)
-- [Changing the Page `<title>`](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#changing-the-page-title)
 - [Installing a Dependency](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#installing-a-dependency)
 - [Importing a Component](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#importing-a-component)
-- [Code Splitting](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#code-splitting)
 - [Adding a Stylesheet](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-a-stylesheet)
 - [Post-Processing CSS](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#post-processing-css)
 - [Adding a CSS Preprocessor (Sass, Less etc.)](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
 - [Adding Images, Fonts, and Files](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-images-fonts-and-files)
-- [Using the `public` Folder](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#using-the-public-folder)
-- [Using Global Variables](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#using-global-variables)
-- [Adding Bootstrap](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-bootstrap)
 - [Adding Flow](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-flow)
-- [Adding a Router](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-a-router)
 - [Adding Custom Environment Variables](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
 - [Can I Use Decorators?](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#can-i-use-decorators)
 - [Fetching Data with AJAX Requests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests)
-- [Integrating with an API Backend](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#integrating-with-an-api-backend)
-- [Proxying API Requests in Development](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development)
-- [Using HTTPS in Development](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#using-https-in-development)
-- [Generating Dynamic `<meta>` Tags on the Server](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#generating-dynamic-meta-tags-on-the-server)
-- [Pre-Rendering into Static HTML Files](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#pre-rendering-into-static-html-files)
 - [Running Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#running-tests)
 - [Debugging Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#debugging-tests)
-- [Developing Components in Isolation](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#developing-components-in-isolation)
-- [Publishing Components to npm](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#publishing-components-to-npm)
-- [Making a Progressive Web App](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app)
-- [Analyzing the Bundle Size](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#analyzing-the-bundle-size)
 - [Deployment](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#deployment)
 - [Advanced Configuration](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#advanced-configuration)
 - [Troubleshooting](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#troubleshooting)
 
 A copy of the user guide will be created as `README.md` in your project folder.
-
-## How to Update to New Versions?
-
-Please refer to the [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases) for this and other information.
 
 ## Philosophy
 
@@ -168,35 +140,17 @@ Please refer to the [User Guide](https://github.com/elegantthemes/create-divi-ex
 
 Your environment will have everything you need to build a Divi extension:
 
-* React, JSX, ES6, and Flow syntax support.
+* React, JSX, ES6, and optional Flow syntax support.
 * Language extras beyond ES6 like the object spread operator.
-* Autoprefixed CSS, so you don’t need `-webkit-` or other prefixes.
+* Auto prefixed CSS, so you don’t need `-webkit-` or other prefixes.
 * A fast interactive unit test runner with built-in support for coverage reporting.
 * A live development server that warns about common mistakes.
 * A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps.
-* An offline-first [service worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) and a [web app manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/), meeting all the [Progressive Web App](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app) criteria.
-* Hassle-free updates for the above tools with a single dependency.
+* Hassle-free updates for the above tools via a single dependency.
 
 Check out [this guide](https://github.com/nitishdayal/cra_closer_look) for an overview of how these tools fit together.
 
-The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#npm-run-eject) and customize it, but then you will need to maintain this configuration.
-
-## Popular Alternatives
-
-Create Divi Extension is a great fit for:
-
-* **Learning React** in a comfortable and feature-rich development environment.
-* **Starting new React powered Divi extensions.**
-* **Creating examples** with React for your extensions.
-
-Here’s a few common cases where you might want to try something else:
-
-* If you want to **try React** without hundreds of transitive build tool dependencies, consider [using a single HTML file or an online sandbox instead](https://reactjs.org/docs/try-react.html).
-* If you need **more customization**, check out [Neutrino](https://neutrino.js.org/) and its [React preset](https://neutrino.js.org/packages/react/).
-
-All of the above tools can work with little to no configuration.
-
-If you prefer configuring the build yourself, [follow this guide](https://reactjs.org/docs/add-react-to-an-existing-app.html).
+The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#npm-run-eject) and customize it, but then you will need to maintain the configuration.
 
 ## Contributing
 
@@ -204,8 +158,4 @@ We'd love to have your helping hand on `create-divi-extension`! See [CONTRIBUTIN
 
 ## Acknowledgements
 
-We are grateful to the authors of existing related projects for their ideas and collaboration:
-
-* [@eanplatter](https://github.com/eanplatter)
-* [@insin](https://github.com/insin)
-* [@mxstbr](https://github.com/mxstbr)
+We are grateful to the authors of [`create-react-app`](https://github.com/facebook/create-react-app) for creating the awesome tool on which `create-divi-extension` is based.
