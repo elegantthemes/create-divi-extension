@@ -20,6 +20,7 @@
     "FileSizeReporter.js",
     "formatWebpackMessages.js",
     "getProcessForPort.js",
+    "glob.js",
     "ignoredFiles.js",
     "inquirer.js",
     "InterpolateHtmlPlugin.js",
