@@ -3,7 +3,7 @@
 Create Divi Extensions with no build configuration.
 
 * [Creating an Extension](#creating-an-extension) – How to create a new extension.
-* [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md) – How to develop extensions bootstrapped with Create Divi Extension.
+* [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md) – How to develop extensions bootstrapped with Create Divi Extension.
 
 Create Divi Extension works on macOS, Windows, and Linux.<br>
 If something doesn’t work, please [file an issue](https://github.com/elegantthemes/create-divi-extension/issues/new).
@@ -99,32 +99,32 @@ Your extension is ready to be deployed.
 
 ## User Guide
 
-The [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md) includes information on different topics, such as:
+The [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md) includes information on different topics, such as:
 
-- [Updating to New Releases](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases)
-- [Folder Structure](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#folder-structure)
-- [Available Scripts](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#available-scripts)
-- [Supported Browsers](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#supported-browsers)
-- [Supported Language Features and Polyfills](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills)
-- [Syntax Highlighting in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#syntax-highlighting-in-the-editor)
-- [Displaying Lint Output in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#displaying-lint-output-in-the-editor)
-- [Formatting Code Automatically](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically)
-- [Debugging in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#debugging-in-the-editor)
-- [Installing a Dependency](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#installing-a-dependency)
-- [Importing a Component](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#importing-a-component)
-- [Adding a Stylesheet](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-a-stylesheet)
-- [Post-Processing CSS](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#post-processing-css)
-- [Adding a CSS Preprocessor (Sass, Less etc.)](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
-- [Adding Images, Fonts, and Files](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-images-fonts-and-files)
-- [Adding Flow](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-flow)
-- [Adding Custom Environment Variables](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables)
-- [Can I Use Decorators?](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#can-i-use-decorators)
-- [Fetching Data with AJAX Requests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#fetching-data-with-ajax-requests)
-- [Running Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#running-tests)
-- [Debugging Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#debugging-tests)
-- [Deployment](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#deployment)
-- [Advanced Configuration](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#advanced-configuration)
-- [Troubleshooting](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#troubleshooting)
+- [Updating to New Releases](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#updating-to-new-releases)
+- [Folder Structure](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#folder-structure)
+- [Available Scripts](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#available-scripts)
+- [Supported Browsers](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#supported-browsers)
+- [Supported Language Features and Polyfills](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#supported-language-features-and-polyfills)
+- [Syntax Highlighting in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#syntax-highlighting-in-the-editor)
+- [Displaying Lint Output in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#displaying-lint-output-in-the-editor)
+- [Formatting Code Automatically](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#formatting-code-automatically)
+- [Debugging in the Editor](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#debugging-in-the-editor)
+- [Installing a Dependency](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#installing-a-dependency)
+- [Importing a Component](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#importing-a-component)
+- [Adding a Stylesheet](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-a-stylesheet)
+- [Post-Processing CSS](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#post-processing-css)
+- [Adding a CSS Preprocessor (Sass, Less etc.)](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
+- [Adding Images, Fonts, and Files](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-images-fonts-and-files)
+- [Adding Flow](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-flow)
+- [Adding Custom Environment Variables](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-custom-environment-variables)
+- [Can I Use Decorators?](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#can-i-use-decorators)
+- [Fetching Data with AJAX Requests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#fetching-data-with-ajax-requests)
+- [Running Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#running-tests)
+- [Debugging Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#debugging-tests)
+- [Deployment](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#deployment)
+- [Advanced Configuration](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#advanced-configuration)
+- [Troubleshooting](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#troubleshooting)
 
 A copy of the user guide will be created as `README.md` in your project folder.
 
@@ -150,7 +150,7 @@ Your environment will have everything you need to build a Divi extension:
 
 Check out [this guide](https://github.com/nitishdayal/cra_closer_look) for an overview of how these tools fit together.
 
-The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/react-scripts/template/README.md#npm-run-eject) and customize it, but then you will need to maintain the configuration.
+The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#npm-run-eject) and customize it, but then you will need to maintain the configuration.
 
 ## Contributing
 
