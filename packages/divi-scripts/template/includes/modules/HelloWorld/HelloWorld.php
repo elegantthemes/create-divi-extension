@@ -5,6 +5,12 @@ class __PREFIX_HelloWorld extends ET_Builder_Module {
 	public $slug       = '__prefix_hello_world';
 	public $vb_support = 'on';
 
+	protected $module_credits = array(
+		'module_uri' => '<URI>',
+		'author'     => '<AUTHOR>',
+		'author_uri' => '<AUTHOR_URI>',
+	);
+
 	public function init() {
 		$this->name = esc_html__( 'Hello World', '<GETTEXT_DOMAIN>' );
 	}
