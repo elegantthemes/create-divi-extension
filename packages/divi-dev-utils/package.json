@@ -1,6 +1,6 @@
 {
   "name": "divi-dev-utils",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "Webpack utilities used by Create Divi Extension",
   "repository": "elegantthemes/create-divi-extension",
   "license": "MIT",
@@ -44,7 +44,7 @@
     "chalk": "2.3.0",
     "cross-spawn": "5.1.0",
     "detect-port-alt": "1.1.5",
-    "divi-error-overlay": "^1.0.0-beta.5",
+    "divi-error-overlay": "^1.0.0-beta.6",
     "escape-string-regexp": "1.0.5",
     "filesize": "3.5.11",
     "find-pkg": "1.0.0",
