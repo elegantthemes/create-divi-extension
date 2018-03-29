@@ -23,12 +23,12 @@ class WPConfig {
     }
 
     this._getRegExp = new RegExp(
-      `define\\( *["']${constant}["'], *(["'].*["']|[^ )]+)`
+      `(define\\( *["']${constant}["'], *)(["'].*["']|[^ )]+)`
     );
 
-    let match = this.config.match(this._getRegExp)[1];
+    let match = this.config.match(this._getRegExp)[2];
 
-    if (match.test(/["'].*["']/)) {
+    if (/["'].*["']/.test(match)) {
       match = match.slice(1, -1);
     } else if ('false' === match) {
       match = false;
@@ -57,14 +57,15 @@ class WPConfig {
 
     if ('not_found' === current_value) {
       // Add new definition
-      const regex = new RegExp(
-        "\n(?=\\/* That's all, stop editing! Happy blogging\\. *\\/)"
-      );
+      const regex = /(\n)(?=\/\* That's all, stop editing! Happy blogging\. \*\/)/;
 
-      this.config.replace(regex, `\ndefine( '${constant}', ${value} );\n`);
+      this.config = this.config.replace(
+        regex,
+        `define( '${constant}', ${value} );\n\n`
+      );
     } else {
       // Replace existing value
-      this.config.replace(this._getRegExp, value);
+      this.config = this.config.replace(this._getRegExp, `\$1${value}`);
     }
 
     if (this.config !== config) {
