@@ -35,7 +35,7 @@
     "WatchMissingNodeModulesPlugin.js",
     "WebpackDevServerUtils.js",
     "webpackHotDevClient.js",
-    "workspacUtils.js",
+    "workspaceUtils.js",
     "WPConfig.js"
   ],
   "dependencies": {
