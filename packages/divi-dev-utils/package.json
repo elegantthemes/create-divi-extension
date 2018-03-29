@@ -35,7 +35,8 @@
     "WatchMissingNodeModulesPlugin.js",
     "WebpackDevServerUtils.js",
     "webpackHotDevClient.js",
-    "workspaceUtils.js"
+    "workspacUtils.js",
+    "WPConfig.js"
   ],
   "dependencies": {
     "@babel/code-frame": "7.0.0-beta.42",
@@ -47,6 +48,7 @@
     "divi-error-overlay": "^1.0.0-beta.6",
     "escape-string-regexp": "1.0.5",
     "filesize": "3.5.11",
+    "find-config": "1.0",
     "find-pkg": "1.0.0",
     "global-modules": "1.0.0",
     "globby": "7.1.1",

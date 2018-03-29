@@ -90,6 +90,20 @@ module.exports = function(
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
+  const prefix = appInfo.pluginPrefix.toLowerCase();
+  const replace = {
+    __prefix: prefix,
+    __PREFIX: prefix.toUpperCase(),
+    __PluginName: _.startCase(appName).replace(/ /g, ''),
+    __plugin_name: appName,
+    '<NAME>': appInfo.pluginName,
+    '<URI>': appInfo.pluginURL,
+    '<DESCRIPTION>': appInfo.pluginDescription,
+    '<AUTHOR>': appInfo.pluginAuthor,
+    '<AUTHOR_URI>': appInfo.pluginAuthorURL,
+    '<GETTEXT_DOMAIN>': `${prefix}-${appName}`,
+  };
+
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
 
@@ -102,6 +116,11 @@ module.exports = function(
   };
 
   appPackage.browserslist = defaultBrowsers;
+
+  appPackage.cde = {
+    gettext: `${prefix}-${appName}`,
+    prefix,
+  };
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
@@ -156,20 +175,6 @@ module.exports = function(
     path.join(appPath, 'languages', 'gitignore'),
     path.join(appPath, 'languages', '.gitignore')
   );
-
-  const prefix = appInfo.pluginPrefix.toLowerCase();
-  const replace = {
-    __prefix: prefix,
-    __PREFIX: prefix.toUpperCase(),
-    __PluginName: _.startCase(appName).replace(/ /g, ''),
-    __plugin_name: appName,
-    '<NAME>': appInfo.pluginName,
-    '<URI>': appInfo.pluginURL,
-    '<DESCRIPTION>': appInfo.pluginDescription,
-    '<AUTHOR>': appInfo.pluginAuthor,
-    '<AUTHOR_URI>': appInfo.pluginAuthorURL,
-    '<GETTEXT_DOMAIN>': `${prefix}-${appName}`,
-  };
 
   // Rename files that have '__prefix' or '__plugin-name' in their names
   renameFiles(appPath, replace);

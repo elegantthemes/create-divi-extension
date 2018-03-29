@@ -45,6 +45,7 @@ const openBrowser = require('divi-dev-utils/openBrowser');
 const paths = require('../config/paths');
 const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
+const wp_config = require('divi-dev-utils/WPConfig');
 
 const isInteractive = process.stdout.isTTY;
 
@@ -56,6 +57,7 @@ if (!checkRequiredFiles([paths.appIndexJs])) {
 // Tools like Cloud9 rely on this.
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
+const PREFIX = require(paths.appPackageJson).cde.prefix.toUpperCase();
 
 if (process.env.HOST) {
   console.log(
@@ -117,11 +119,13 @@ checkBrowsers(paths.appPath)
         clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
+      wp_config.set(`${PREFIX}_DEBUG`, true);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
       process.on(sig, function() {
         devServer.close();
+        wp_config.set(`${PREFIX}_DEBUG`, false);
         process.exit();
       });
     });
@@ -130,5 +134,6 @@ checkBrowsers(paths.appPath)
     if (err && err.message) {
       console.log(err.message);
     }
+    wp_config.set(`${PREFIX}_DEBUG`, false);
     process.exit(1);
   });

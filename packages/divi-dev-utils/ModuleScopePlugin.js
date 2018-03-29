@@ -12,9 +12,10 @@ const chalk = require('chalk');
 const path = require('path');
 
 class ModuleScopePlugin {
-  constructor(appSrc, allowedFiles = []) {
-    appSrc = Array.isArray(appSrc) ? appSrc : [appSrc];
-    this.appSrc[0] = path.dirname(appSrc[0]);
+  constructor(appSrcs, allowedFiles = []) {
+    appSrcs = Array.isArray(appSrcs) ? appSrcs : [appSrcs];
+    appSrcs[0] = path.dirname(appSrcs[0]);
+    this.appSrcs = appSrcs;
     this.allowedFiles = new Set(allowedFiles);
   }
 
