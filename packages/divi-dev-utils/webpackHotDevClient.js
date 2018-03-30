@@ -63,7 +63,7 @@ var connection = new SockJS(
   url.format({
     protocol: window.location.protocol,
     hostname: window.location.hostname,
-    port: window.location.port,
+    port: 3000,
     // Hardcoded in WebpackDevServer
     pathname: '/sockjs-node',
   })
