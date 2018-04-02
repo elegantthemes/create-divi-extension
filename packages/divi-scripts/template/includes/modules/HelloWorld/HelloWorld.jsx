@@ -7,6 +7,8 @@ import './style.css';
 
 class HelloWorld extends Component {
 
+  static slug = '__prefix_hello_world';
+
   render() {
     const Content = this.props.content;
 
