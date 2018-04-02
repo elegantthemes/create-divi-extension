@@ -3,7 +3,9 @@ const findConfig = require('find-config');
 
 class WPConfig {
   constructor() {
-    this.config_path = findConfig('wp-config.php');
+    const cwd = process.env.PWD || process.cwd();
+
+    this.config_path = findConfig('wp-config.php', { cwd });
     this.config = '';
     this._getRegExp = null;
 
