@@ -63,7 +63,7 @@ class WPConfig {
 
       this.config = this.config.replace(
         regex,
-        `define( '${constant}', ${value} );\n\n`
+        `\ndefine( '${constant}', ${value} );\n\n`
       );
     } else {
       // Replace existing value
