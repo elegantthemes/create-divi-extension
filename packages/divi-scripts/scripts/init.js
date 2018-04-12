@@ -111,7 +111,7 @@ module.exports = function(
   appPackage.scripts = {
     start: 'divi-scripts start',
     build: 'divi-scripts build',
-    test: 'divi-scripts test --env=jsdom',
+    zip: 'divi-scripts build && divi-scripts zip',
     eject: 'divi-scripts eject',
   };
 
