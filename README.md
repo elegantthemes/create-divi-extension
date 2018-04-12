@@ -10,6 +10,7 @@ Create Divi Extension works on macOS, Windows, and Linux. If something doesn’t
 ## Quick Overview
 
 ```sh
+cd .../wp-content/plugins
 npx create-divi-extension my-extension
 cd my-extension
 yarn start
@@ -33,7 +34,7 @@ Just create a project, and you’re good to go.
 
 **You’ll need to have Node >= 6 on your local development machine**.
 
-To create a new extension, run a single command:
+To create a new extension, run a single command from inside your WordPress plugins directory:
 
 ```sh
 npx create-divi-extension my-extension
@@ -41,7 +42,7 @@ npx create-divi-extension my-extension
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
-It will create a directory called `my-extension` inside the current directory. Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+It will create a directory called `my-extension`. Inside that directory, it will generate the initial project structure and install the transitive dependencies:
 
 ```
 my-extension
@@ -149,7 +150,7 @@ The tradeoff is that **these tools are preconfigured to work in a specific way**
 
 ## Contributing
 
-We'd love to have your helping hand on `create-divi-extension`! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on what we're looking for and how to get started.
+We'd love to have your helping hand on `create-divi-extension`! See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for more information on what we're looking for and how to get started.
 
 ## Acknowledgements
 
