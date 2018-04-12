@@ -10,8 +10,8 @@ You can find the most recent version of this guide [here](https://github.com/ele
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [yarn start](#yarn-start)
-  - [yarn test](#yarn-test)
   - [yarn build](#yarn-build)
+  - [yarn zip](#yarn-zip)
   - [yarn eject](#yarn-eject)
 - [Supported Browsers](#supported-browsers)
 - [Supported Language Features and Polyfills](#supported-language-features-and-polyfills)
@@ -35,7 +35,6 @@ You can find the most recent version of this guide [here](https://github.com/ele
   - [`yarn start` doesn’t detect changes](#npm-start-doesnt-detect-changes)
   - [`yarn test` hangs on macOS Sierra](#npm-test-hangs-on-macos-sierra)
   - [`yarn build` exits too early](#npm-run-build-exits-too-early)
-  - [`yarn build` fails on Heroku](#npm-run-build-fails-on-heroku)
   - [`yarn build` fails to minify](#npm-run-build-fails-to-minify)
   - [Moment.js locales are missing](#momentjs-locales-are-missing)
 - [Alternatives to Ejecting](#alternatives-to-ejecting)
@@ -104,6 +103,10 @@ Builds the extension in the development mode. Open your WordPress site to view i
 ### `yarn build`
 
 Builds the extension for production to the `build` folder. It correctly optimizes the build for the best performance.
+
+### `yarn zip`
+
+Runs `build` and then creates a production release zip file.
 
 ### `yarn eject`
 

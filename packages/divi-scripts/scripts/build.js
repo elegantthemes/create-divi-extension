@@ -88,7 +88,7 @@ checkBrowsers(paths.appPath)
         );
         console.log(
           'To ignore, add ' +
-            chalk.cyan('// eslint-disable-next-line') +
+            chalk.magenta('// eslint-disable-next-line') +
             ' to the line before.\n'
         );
       } else {
@@ -109,13 +109,13 @@ checkBrowsers(paths.appPath)
       const publicUrl = paths.publicUrl;
       const publicPath = config.output.publicPath;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);
-      printHostingInstructions(
+      /*printHostingInstructions(
         appPackage,
         publicUrl,
         publicPath,
         buildFolder,
         paths.useYarn
-      );
+      );*/
       printBrowsers(paths.appPath);
     },
     err => {

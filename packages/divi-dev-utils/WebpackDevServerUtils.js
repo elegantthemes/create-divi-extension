@@ -98,7 +98,7 @@ function printInstructions(appName, urls, useYarn) {
   console.log('Note that the development build is not optimized.');
   console.log(
     `To create a production build, use ` +
-      `${chalk.cyan(`${useYarn ? 'yarn' : 'npm run'} build`)}.`
+      `${chalk.magenta(`${useYarn ? 'yarn' : 'npm run'} build`)}.`
   );
   console.log();
 }
@@ -175,7 +175,7 @@ function createCompiler(webpack, config, appName, urls, useYarn) {
       );
       console.log(
         'To ignore, add ' +
-          chalk.cyan('// eslint-disable-next-line') +
+          chalk.magenta('// eslint-disable-next-line') +
           ' to the line before.\n'
       );
     }
@@ -220,16 +220,16 @@ function onProxyError(proxy) {
     console.log(
       chalk.red('Proxy error:') +
         ' Could not proxy request ' +
-        chalk.cyan(req.url) +
+        chalk.magenta(req.url) +
         ' from ' +
-        chalk.cyan(host) +
+        chalk.magenta(host) +
         ' to ' +
-        chalk.cyan(proxy) +
+        chalk.magenta(proxy) +
         '.'
     );
     console.log(
       'See https://nodejs.org/api/errors.html#errors_common_system_errors for more information (' +
-        chalk.cyan(err.code) +
+        chalk.magenta(err.code) +
         ').'
     );
     console.log();

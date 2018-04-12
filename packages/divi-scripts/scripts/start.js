@@ -61,7 +61,7 @@ const PREFIX = require(paths.appPackageJson).cde.prefix.toUpperCase();
 
 if (process.env.HOST) {
   console.log(
-    chalk.cyan(
+    chalk.magenta(
       `Attempting to bind to HOST environment variable: ${chalk.yellow(
         chalk.bold(process.env.HOST)
       )}`
@@ -118,7 +118,7 @@ checkBrowsers(paths.appPath)
       if (isInteractive) {
         clearConsole();
       }
-      console.log(chalk.cyan('Starting the development server...\n'));
+      console.log(chalk.magenta('Starting the development server...\n'));
       wp_config.set(`${PREFIX}_DEBUG`, true);
     });
 

@@ -5,8 +5,7 @@ Create Divi Extensions with no build configuration.
 * [Creating an Extension](#creating-an-extension) – How to create a new extension.
 * [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md) – How to develop extensions bootstrapped with Create Divi Extension.
 
-Create Divi Extension works on macOS, Windows, and Linux.<br>
-If something doesn’t work, please [file an issue](https://github.com/elegantthemes/create-divi-extension/issues/new).
+Create Divi Extension works on macOS, Windows, and Linux. If something doesn’t work, please [file an issue](https://github.com/elegantthemes/create-divi-extension/issues/new).
 
 ## Quick Overview
 
@@ -18,8 +17,7 @@ yarn start
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
-Then open your WordPress site to see your extension.<br>
-When you’re ready to deploy to production, create a minified bundle with `yarn build`.
+Then open your WordPress site to see your extension. When you’re ready to deploy to production, create a minified bundle with `yarn build`.
 
 <p align='center'>
 <img src='./screencast.svg' width='750' alt='npx create-divi-extension my-extension'/>
@@ -27,8 +25,7 @@ When you’re ready to deploy to production, create a minified bundle with `yarn
 
 ### Get Started Immediately
 
-You **don’t** need to install or configure tools like Webpack or Babel.<br>
-They are preconfigured and hidden so that you can focus on the code.
+You **don’t** need to install or configure tools like Webpack or Babel. They are preconfigured and hidden so that you can focus on the code.
 
 Just create a project, and you’re good to go.
 
@@ -44,8 +41,7 @@ npx create-divi-extension my-extension
 
 *([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
-It will create a directory called `my-extension` inside the current directory.<br>
-Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+It will create a directory called `my-extension` inside the current directory. Inside that directory, it will generate the initial project structure and install the transitive dependencies:
 
 ```
 my-extension
@@ -68,8 +64,7 @@ my-extension
 └── README.md
 ```
 
-No configuration or complicated folder structures, just the files you need to build your extension.<br>
-Once the installation is done, you can open your project folder:
+No configuration or complicated folder structures, just the files you need to build your extension. Once the installation is done, you can open your project folder:
 
 ```sh
 cd my-extension
@@ -79,11 +74,9 @@ Inside the newly created project, you can run some built-in commands:
 
 ### `npm start` or `yarn start`
 
-Runs the extension in development mode.<br>
-Open your WordPress website to view it.
+Runs the extension in development mode. Open your WordPress website to view it.
 
-The page will automatically reload if you make changes to the code.<br>
-You will see the build errors and lint warnings in the console.
+The page will automatically reload if you make changes to the code. You will see the build errors and lint warnings in the console.
 
 <p align='center'>
 <img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='750' alt='Build errors'>
@@ -91,11 +84,13 @@ You will see the build errors and lint warnings in the console.
 
 ### `npm run build` or `yarn build`
 
-Builds the extension for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the extension for production. It correctly optimizes the build for the best performance.
 
-The build is minified.<br>
-Your extension is ready to be deployed.
+The build is minified. Your extension is ready to be deployed.
+
+### `npm run zip` or `yarn zip`
+
+Runs `build` and then creates a production release zip file.
 
 ## User Guide
 

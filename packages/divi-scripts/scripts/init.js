@@ -242,22 +242,27 @@ module.exports = function(
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
   console.log();
-  console.log(`Success! Created ${appName} at ${appPath}`);
+  console.log(`${chalk.green('Success!')} Created ${appName} at ${appPath}`);
+  console.log();
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} start`));
+  console.log(
+    chalk.magenta(`  ${displayedCommand} ${useYarn ? '' : 'run '}start`)
+  );
   console.log('    Starts the development server.');
   console.log();
   console.log(
-    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`)
+    chalk.magenta(`  ${displayedCommand} ${useYarn ? '' : 'run '}build`)
   );
   console.log('    Bundles the extension into static files for production.');
   console.log();
-  // console.log(chalk.cyan(`  ${displayedCommand} test`));
-  // console.log('    Starts the test runner.');
-  // console.log();
   console.log(
-    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)
+    chalk.magenta(`  ${displayedCommand} ${useYarn ? '' : 'run '}zip`)
+  );
+  console.log('    Runs build and then creates a production release zip file.');
+  console.log();
+  console.log(
+    chalk.magenta(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)
   );
   console.log(
     '    Removes this tool and copies build dependencies, configuration files'
@@ -268,8 +273,8 @@ module.exports = function(
   console.log();
   console.log('We suggest that you begin by typing:');
   console.log();
-  console.log(chalk.cyan('  cd'), cdpath);
-  console.log(`  ${chalk.cyan(`${displayedCommand} start`)}`);
+  console.log(chalk.magenta('  cd'), cdpath);
+  console.log(`  ${chalk.magenta(`${displayedCommand} start`)}`);
   if (readmeExists) {
     console.log();
     console.log(
@@ -280,7 +285,7 @@ module.exports = function(
   }
   console.log();
   console.log();
-  console.log('Happy hacking!');
+  console.log(chalk.blue('Happy hacking!'));
 };
 
 function isReactInstalled(appPackage) {
