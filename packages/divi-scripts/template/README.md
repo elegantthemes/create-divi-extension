@@ -1,7 +1,6 @@
 This project was bootstrapped with [Create Divi Extension](https://github.com/elegantthemes/create-divi-extension).
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md).
+Below you will find some information on how to perform common tasks. You can find the most recent version of this guide [here](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md).
 
 ## Table of Contents
 
