@@ -40,6 +40,7 @@ function pluginPrefixQuestion(appName) {
     message:
       'Prefix? (Unique identifier for variables, functions, and classes)',
     default: suggestedPrefix,
+    validate: value => /^[a-zA-Z][a-zA-Z0-9]{2,}$/.test(value),
   };
 }
 
