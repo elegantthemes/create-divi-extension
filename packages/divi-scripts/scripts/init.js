@@ -286,6 +286,7 @@ module.exports = function(
   console.log();
   console.log();
   console.log(chalk.blue('Happy hacking!'));
+  console.log();
 };
 
 function isReactInstalled(appPackage) {
