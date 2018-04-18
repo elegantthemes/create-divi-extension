@@ -6,9 +6,9 @@ class __PREFIX_HelloWorld extends ET_Builder_Module {
 	public $vb_support = 'on';
 
 	protected $module_credits = array(
-		'module_uri' => '<URI>',
-		'author'     => '<AUTHOR>',
-		'author_uri' => '<AUTHOR_URI>',
+		'module_uri' => '__URI',
+		'author'     => '__AUTHOR',
+		'author_uri' => '__AUTHOR_URI',
 	);
 
 	public function init() {
