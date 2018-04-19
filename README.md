@@ -1,4 +1,4 @@
-# Create Divi Extension [![CircleCI](https://circleci.com/gh/elegantthemes/create-divi-extension.svg?style=svg&circle-token=ddc0b9a9a293feba2cb9dce3d23282b83ed4133c)](https://circleci.com/gh/elegantthemes/create-divi-extension)
+# Create Divi Extension <!--[![CircleCI](https://circleci.com/gh/elegantthemes/create-divi-extension.svg?style=svg&circle-token=ddc0b9a9a293feba2cb9dce3d23282b83ed4133c)](https://circleci.com/gh/elegantthemes/create-divi-extension)-->
 
 Create Divi Extensions with no build configuration.
 
