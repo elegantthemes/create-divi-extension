@@ -25,6 +25,23 @@ const scriptIndex = args.findIndex(
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
+(function maybeMonkeyPatchDevServer() {
+  const client = path.join(
+    __dirname,
+    'node_modules/webpack-dev-server/client/index.js'
+  );
+  const code = fs.readFileSync(client, 'utf-8');
+
+  if (code.includes('self.location.protocol;')) {
+    const new_code = code.replace(
+      'self.location.protocol;',
+      'window.top ? window.top.location.protocol : self.location.protocol;'
+    );
+
+    fs.writeFileSync(client, new_code);
+  }
+})();
+
 switch (script) {
   case 'build':
   case 'eject':
