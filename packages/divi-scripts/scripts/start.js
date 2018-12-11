@@ -32,7 +32,6 @@ if (process.env.SKIP_PREFLIGHT_CHECK !== 'true') {
 
 const chalk = require('chalk');
 const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('divi-dev-utils/clearConsole');
 const checkRequiredFiles = require('divi-dev-utils/checkRequiredFiles');
 const {
@@ -47,6 +46,25 @@ const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
 const wp_config = require('divi-dev-utils/WPConfig');
 
+(function maybeMonkeyPatchDevServer() {
+  const path = require('path');
+  const client = path.join(
+    paths.appNodeModules,
+    'webpack-dev-server/client/index.js'
+  );
+  const code = fs.readFileSync(client, 'utf-8');
+
+  if (!code.includes('window.top.location.protocol')) {
+    const new_code = code.replace(
+      'self.location.protocol;',
+      'window.top ? window.top.location.protocol : self.location.protocol;'
+    );
+
+    fs.writeFileSync(client, new_code);
+  }
+})();
+
+const WebpackDevServer = require('webpack-dev-server');
 const isInteractive = process.stdout.isTTY;
 
 // Warn and crash if required files are missing
