@@ -6,11 +6,11 @@
   "changelog": {
     "repo": "elegantthemes/create-divi-extension",
     "labels": {
-      "tag: new feature": ":rocket: New Feature",
+      "tag: FEATURE": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
-      "tag: bug fix": ":bug: Bug Fix",
-      "tag: enhancement": ":nail_care: Enhancement",
-      "tag: documentation": ":memo: Documentation",
+      "tag: BUG": ":bug: Bug Fix",
+      "tag: IMPROVEMENT": ":nail_care: Improvement",
+      "tag: DOCUMENTATION": ":memo: Documentation",
       "tag: internal": ":house: Internal"
     },
     "cacheDir": ".changelog"
