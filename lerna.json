@@ -15,7 +15,9 @@
   },
   "command": {
     "publish": {
-        "ignoreChanges": ["lerna.json"]
+        "ignoreChanges": [
+          "**/lerna.json"
+        ]
     }
   }
 }
