@@ -12,5 +12,10 @@
       "DOCUMENTATION": ":memo: Documentation"
     },
     "cacheDir": ".changelog"
+  },
+  "command": {
+    "publish": {
+        "ignoreChanges": "lerna.json"
+    }
   }
 }
