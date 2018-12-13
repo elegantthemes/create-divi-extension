@@ -58,11 +58,13 @@ if (module.hot && typeof module.hot.dispose === 'function') {
   });
 }
 
+const topWindow = () => window.top || window;
+
 // Connect to WebpackDevServer via a socket.
 var connection = new SockJS(
   url.format({
-    protocol: window.location.protocol,
-    hostname: window.location.hostname,
+    protocol: topWindow().location.protocol,
+    hostname: topWindow().location.hostname,
     port: 3000,
     // Hardcoded in WebpackDevServer
     pathname: '/sockjs-node',
@@ -203,7 +205,7 @@ connection.onmessage = function(e) {
       break;
     case 'content-changed':
       // Triggered when a file from `contentBase` changed.
-      window.location.reload();
+      topWindow().location.reload();
       break;
     case 'warnings':
       handleWarnings(message.data);
@@ -233,7 +235,7 @@ function canApplyUpdates() {
 function tryApplyUpdates(onHotUpdateSuccess) {
   if (!module.hot) {
     // HotModuleReplacementPlugin is not in Webpack configuration.
-    window.location.reload();
+    topWindow().location.reload();
     return;
   }
 
@@ -243,7 +245,7 @@ function tryApplyUpdates(onHotUpdateSuccess) {
 
   function handleApplyUpdates(err, updatedModules) {
     if (err || !updatedModules || hadRuntimeError) {
-      window.location.reload();
+      topWindow().location.reload();
       return;
     }
 
