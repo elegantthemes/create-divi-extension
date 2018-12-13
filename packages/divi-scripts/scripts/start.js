@@ -48,6 +48,7 @@ const wp_config = require('divi-dev-utils/WPConfig');
 
 (function maybeMonkeyPatchDevServer() {
   const path = require('path');
+  const fs = require('fs');
   const client = path.join(
     paths.appNodeModules,
     'webpack-dev-server/client/index.js'
