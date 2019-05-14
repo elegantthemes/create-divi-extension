@@ -89,7 +89,12 @@ module.exports = {
       ]),
       // Include all unminified css files found in the 'includes' directory that aren't next to a javascript file.
       ...glob.sync(
-        [`${paths.appSrc}/**/*.css`, `!${paths.appSrc}/**/*.min.css`],
+        [
+          `${paths.appSrc}/**/*.css`,
+          `${paths.appSrc}/**/*.scss`,
+          `${paths.appSrc}/**/*.sass`,
+          `!${paths.appSrc}/**/*.min.css`,
+        ],
         {
           transform: file => {
             const dir = path.dirname(file);
@@ -289,9 +294,9 @@ module.exports = {
           // in the main CSS file.
           // By default we support CSS Modules with the extension .module.css
           {
-            test: /\.css$/,
+            test: /\.(s?css|sass)$/,
             exclude: /\.module\.css$/,
-            loader: ExtractTextPlugin.extract(
+            use: ExtractTextPlugin.extract(
               Object.assign(
                 {
                   fallback: {
@@ -312,6 +317,12 @@ module.exports = {
                     {
                       loader: require.resolve('postcss-loader'),
                       options: postCSSLoaderOptions,
+                    },
+                    {
+                      loader: require.resolve('sass-loader'),
+                      options: {
+                        sourceMap: shouldUseSourceMap,
+                      },
                     },
                   ],
                 },
