@@ -59,7 +59,7 @@ class WPConfig {
 
     if ('not_found' === current_value) {
       // Add new definition
-      const regex = /(\n)(?=\/\* That's all, stop editing! Happy blogging\. \*\/)/;
+      const regex = /(\r?\n)(?=\/\* That's all, stop editing! Happy \w+\. \*\/)/;
 
       this.config = this.config.replace(
         regex,
