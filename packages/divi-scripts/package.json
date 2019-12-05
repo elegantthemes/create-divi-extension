@@ -36,7 +36,7 @@
     "divi-dev-utils": "^1.0.1",
     "dotenv": "5.0.0",
     "dotenv-expand": "4.2.0",
-    "eslint": "4.15.0",
+    "eslint": "6.7.2",
     "eslint-config-divi-extension": "^1.0.0",
     "eslint-loader": "1.9.0",
     "eslint-plugin-flowtype": "2.41.0",
