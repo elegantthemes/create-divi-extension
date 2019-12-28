@@ -125,6 +125,8 @@ module.exports = {
     chunkFilename: 'scripts/[name].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
+    // Import @divi packages from window
+    libraryTarget: 'window',
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
@@ -170,12 +172,27 @@ module.exports = {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   },
-  externals: {
-    jquery: 'jQuery',
-    underscore: '_',
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
+  externals: [
+    {
+      jquery: 'jQuery',
+      underscore: '_',
+      react: 'React',
+      'react-dom': 'ReactDOM',
+    },
+    // Resolve nested @divi imports like
+    // @divi/api
+    // @divi/components
+    // @divi/controls/textarea
+    (context, request, callback) => {
+      if (/^@divi\//.test(request)){
+        const path = request.split('/').slice(1);
+        callback(null, { window: ['ET_Builder_Exports', 'bundle', ...path] });
+      } else {
+        // Not a @divi request.
+        callback();
+      }
+    }
+  ],
   module: {
     strictExportPresence: true,
     rules: [
