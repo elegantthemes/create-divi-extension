@@ -43,15 +43,25 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 }
 
 // Note: defined here because it will be used more than once.
-const cssFilename = 'styles/style.min.css';
+const cssFrontendFilename = 'styles/style.min.css';
+const cssBackendFilename = 'styles/backend-style.min.css';
+
+// Initiate ExtractTextPlugin instance for frontend and backend styles.
+const extractTextPluginFrontend = new ExtractTextPlugin(cssFrontendFilename);
+const extractTextPluginBackend = new ExtractTextPlugin(cssBackendFilename);
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
 // To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
+const extractTextPluginFrontendOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split('/').length).join('../') }
+    { publicPath: Array(cssFrontendFilename.split('/').length).join('../') }
+  : {};
+
+const extractTextPluginBackendOptions = shouldUseRelativeAssetPaths
+  ? // Making sure that the publicPath goes back to to build folder.
+    { publicPath: Array(cssBackendFilename.split('/').length).join('../') }
   : {};
 
 // Options for PostCSS as we reference these options twice
@@ -112,6 +122,14 @@ module.exports = {
       ...glob.sync([
         `${paths.appScripts}/**/*.js`,
         `!${paths.appScripts}/**/*.min.js`,
+      ]),
+    ],
+    backend: [
+      // Include all css files found in the 'includes/fields' directory.
+      ...glob.sync([
+        `${paths.appSrc}/fields/**/*.css`,
+        `${paths.appSrc}/fields/**/*.scss`,
+        `${paths.appSrc}/fields/**/*.sass`,
       ]),
     ],
   },
@@ -295,8 +313,8 @@ module.exports = {
           // By default we support CSS Modules with the extension .module.css
           {
             test: /\.(s?css|sass)$/,
-            exclude: /\.module\.css$/,
-            use: ExtractTextPlugin.extract(
+            exclude: [/\.module\.css$/, /fields/],
+            use: extractTextPluginFrontend.extract(
               Object.assign(
                 {
                   fallback: {
@@ -326,7 +344,7 @@ module.exports = {
                     },
                   ],
                 },
-                extractTextPluginOptions
+                extractTextPluginFrontendOptions
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
@@ -335,7 +353,7 @@ module.exports = {
           // using the extension .module.css
           {
             test: /\.module\.css$/,
-            loader: ExtractTextPlugin.extract(
+            loader: extractTextPluginFrontend.extract(
               Object.assign(
                 {
                   fallback: {
@@ -361,10 +379,38 @@ module.exports = {
                     },
                   ],
                 },
-                extractTextPluginOptions
+                extractTextPluginFrontendOptions
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          // Adds support for non frontend CSS such as custom fields and group it up
+          // as builder-style CSS.
+          {
+            test: /\.(s?css|sass)$/,
+            exclude: [/modules/],
+            use: extractTextPluginBackend.extract(
+              Object.assign(
+                {
+                  fallback: {
+                    loader: require.resolve('style-loader'),
+                    options: {
+                      hmr: false,
+                    },
+                  },
+                  use: [
+                    {
+                      loader: require.resolve('css-loader'),
+                      options: {
+                        minimize: true,
+                        sourceMap: shouldUseSourceMap,
+                      },
+                    },
+                  ],
+                },
+                extractTextPluginBackendOptions
+              )
+            ),
           },
           // The GraphQL loader preprocesses GraphQL queries in .graphql files.
           {
@@ -428,9 +474,8 @@ module.exports = {
       sourceMap: shouldUseSourceMap,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new ExtractTextPlugin({
-      filename: cssFilename,
-    }),
+    extractTextPluginFrontend,
+    extractTextPluginBackend,
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
