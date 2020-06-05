@@ -12,6 +12,7 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('divi-dev-utils/InterpolateHtmlPlugin');
@@ -46,6 +47,10 @@ const postCSSLoaderOptions = {
     }),
   ],
 };
+
+// Initiate ExtractTextPlugin instance for backend styles.
+const cssBackendFilename = 'styles/backend-style.css';
+const extractTextPluginBackend = new ExtractTextPlugin(cssBackendFilename);
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -332,18 +337,26 @@ module.exports = {
               },
             ],
           },
+          // Adds support for backend CSS such as custom fields and group it up as
+          // backend-style CSS.
           {
             test: /\.(s?css|sass)$/,
             exclude: [/modules/],
-            use: [
-              require.resolve('style-loader'),
-              {
-                loader: require.resolve('css-loader'),
-              },
-              {
-                loader: require.resolve('sass-loader'),
-              },
-            ],
+            use: extractTextPluginBackend.extract(
+              Object.assign({
+                fallback: {
+                  loader: require.resolve('style-loader'),
+                },
+                use: [
+                  {
+                    loader: require.resolve('css-loader'),
+                  },
+                  {
+                    loader: require.resolve('sass-loader'),
+                  },
+                ],
+              })
+            ),
           },
           // The GraphQL loader preprocesses GraphQL queries in .graphql files.
           {
@@ -378,6 +391,8 @@ module.exports = {
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env.stringified),
+    // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
+    extractTextPluginBackend,
     // This is necessary to emit hot updates (currently CSS only):
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use

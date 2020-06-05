@@ -124,14 +124,6 @@ module.exports = {
         `!${paths.appScripts}/**/*.min.js`,
       ]),
     ],
-    backend: [
-      // Include all css files found in the 'includes/fields' directory.
-      ...glob.sync([
-        `${paths.appSrc}/fields/**/*.css`,
-        `${paths.appSrc}/fields/**/*.scss`,
-        `${paths.appSrc}/fields/**/*.sass`,
-      ]),
-    ],
   },
   output: {
     // The build folder.
@@ -384,8 +376,8 @@ module.exports = {
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
-          // Adds support for non frontend CSS such as custom fields and group it up
-          // as builder-style CSS.
+          // Adds support for backend CSS such as custom fields and group it up as
+          // backend-style CSS.
           {
             test: /\.(s?css|sass)$/,
             exclude: [/modules/],
@@ -403,6 +395,12 @@ module.exports = {
                       loader: require.resolve('css-loader'),
                       options: {
                         minimize: true,
+                        sourceMap: shouldUseSourceMap,
+                      },
+                    },
+                    {
+                      loader: require.resolve('sass-loader'),
+                      options: {
                         sourceMap: shouldUseSourceMap,
                       },
                     },
