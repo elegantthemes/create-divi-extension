@@ -10,7 +10,6 @@ class Input extends Component {
 
   constructor(props) {
     super(props);
-    this._onChange = this._onChange.bind(this);
   }
 
   /**
@@ -18,7 +17,7 @@ class Input extends Component {
    *
    * @param {object} event
    */
-  _onChange(event) {
+  _onChange = (event) => {
     this.props._onChange(this.props.name, event.target.value);
   }
 
