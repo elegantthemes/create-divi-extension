@@ -99,6 +99,8 @@ In the project directory, you can run:
 
 Builds the extension in the development mode. Open your WordPress site to view it in the browser. The page will reload if you make edits to JavaScript files. You will also see any lint errors in the console.
 
+Note that `yarn start` will enable debug mode as well. However, you may encounter an issue where it doesn't work that way and causes your custom module not loaded properly. To fix it, you can enable it manually by adding `define( 'PREFIX_DEBUG', true );` on your `wp-config.php` file. Just replace `PREFIX` with your extension prefix.
+
 ### `yarn build`
 
 Builds the extension for production to the `build` folder. It correctly optimizes the build for the best performance.
