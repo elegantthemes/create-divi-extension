@@ -8,10 +8,6 @@ class Input extends Component {
 
   static slug = '__prefix_input';
 
-  constructor(props) {
-    super(props);
-  }
-
   /**
    * Handle input value change.
    *
