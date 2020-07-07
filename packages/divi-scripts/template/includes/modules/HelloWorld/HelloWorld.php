@@ -24,25 +24,11 @@ class __PREFIX_HelloWorld extends ET_Builder_Module {
 				'description'     => esc_html__( 'Content entered here will appear inside the module.', '<GETTEXT_DOMAIN>' ),
 				'toggle_slug'     => 'main_content',
 			),
-			'field'   => array(
-				'label'           => esc_html__( 'Custom Field Example', '<GETTEXT_DOMAIN>' ),
-				'type'            => '__prefix_input',
-				'option_category' => 'basic_option',
-				'description'     => esc_html__( 'Text entered here will appear inside the module.', '<GETTEXT_DOMAIN>' ),
-				'toggle_slug'     => 'main_content',
-			),
 		);
 	}
 
 	public function render( $attrs, $content = null, $render_slug ) {
-		return sprintf(
-			'<div class="__prefix-hello-world">
-				<h1>%1$s</h1>
-				<p>%2$s</p>
-			</div>',
-			$this->props['content'],
-			$this->props['field']
-		);
+		return sprintf( '<h1>%1$s</h1>', $this->props['content'] );
 	}
 }
 
