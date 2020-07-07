@@ -13,7 +13,7 @@ class HelloWorld extends Component {
     const Content = this.props.content;
 
     return (
-      <div class="__prefix-hello-world">
+      <div className="__prefix-hello-world">
         <h1>
           <Content/>
         </h1>
