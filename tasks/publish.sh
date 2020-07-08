@@ -36,4 +36,4 @@ cd packages/divi-error-overlay/
 npm run build:prod
 cd ../..
 # Go!
-./node_modules/.bin/lerna publish --independent "$@"
+./node_modules/.bin/lerna publish "$@"
