@@ -116,14 +116,6 @@ module.exports = {
         `!${paths.appScripts}/**/*.min.js`,
       ]),
     ],
-    backend: [
-      // Include all css files found in the 'includes/fields' directory.
-      ...glob.sync([
-        `${paths.appSrc}/fields/**/*.css`,
-        `${paths.appSrc}/fields/**/*.scss`,
-        `${paths.appSrc}/fields/**/*.sass`,
-      ]),
-    ],
   },
   output: {
     // Add /* filename */ comments to generated require()s in the output.
