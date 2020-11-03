@@ -291,7 +291,7 @@ module.exports = {
           // By default we support CSS Modules with the extension .module.css
           {
             test: /\.(s?css|sass)$/,
-            exclude: [/\.module\.css$/, /fields/],
+            exclude: [/\.module\.css$/, /includes\/fields/],
             use: [
               require.resolve('style-loader'),
               {
