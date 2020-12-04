@@ -8,7 +8,12 @@
 
 # production
 /scripts/bundle.min.js
+/scripts/builder-bundle.min.js
+/scripts/frontend-bundle.min.js
 /styles/bundle.min.css
+/styles/backend-style.min.css
+/styles/style-dbp.min.css
+/styles/style.min.css
 asset-manifest.json
 *.map
 
