@@ -65,7 +65,7 @@
     "style-loader": "0.19.1",
     "svgr": "1.8.1",
     "thread-loader": "1.1.2",
-    "uglifyjs-webpack-plugin": "1.1.6",
+    "uglifyjs-webpack-plugin": "2.0.0",
     "url-loader": "0.6.2",
     "webpack": "3.10.0",
     "webpack-dev-server": "2.11.0",
