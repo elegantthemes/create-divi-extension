@@ -58,6 +58,8 @@ module.exports = {
   appIndexJs: resolveApp('includes/loader.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('includes'),
+  appScripts: resolveApp('public/js'),
+  appStyles: resolveApp('public/css'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),

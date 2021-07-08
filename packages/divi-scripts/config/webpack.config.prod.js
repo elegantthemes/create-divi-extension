@@ -92,32 +92,6 @@ module.exports = {
   entry: {
     builder: [require.resolve('./polyfills'), paths.appIndexJs],
     frontend: [
-      // Include all unminified css files found in the 'styles' directory.
-      ...glob.sync([
-        `${paths.appStyles}/**/*.css`,
-        `!${paths.appStyles}/**/*.min.css`,
-      ]),
-      // Include all unminified css files found in the 'includes' directory that aren't next to a javascript file.
-      ...glob.sync(
-        [
-          `${paths.appSrc}/**/*.css`,
-          `${paths.appSrc}/**/*.scss`,
-          `${paths.appSrc}/**/*.sass`,
-          `!${paths.appSrc}/**/*.min.css`,
-        ],
-        {
-          transform: file => {
-            const dir = path.dirname(file);
-            const results = glob.sync([`${dir}/*.jsx?`]);
-
-            if (results.length > 0) {
-              file = '';
-            }
-
-            return file;
-          },
-        }
-      ),
       // Include all unminified javascript files found in the 'scripts' directory.
       ...glob.sync([
         `${paths.appScripts}/**/*.js`,
@@ -226,10 +200,9 @@ module.exports = {
           // "url" loader works just like "file" loader but it also embeds
           // assets smaller than specified size as data URLs to avoid requests.
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.eot$/, /\.svg$/, /\.ttf$/, /\.woff$/, /\.woff2$/],
             loader: require.resolve('url-loader'),
             options: {
-              limit: 10000,
               name: 'media/[name].[ext]',
             },
           },

@@ -84,32 +84,6 @@ module.exports = {
       // changing JS code would still trigger a refresh.
     ],
     frontend: [
-      // Include all unminified css files found in the 'styles' directory.
-      ...glob.sync([
-        `${paths.appStyles}/**/*.css`,
-        `!${paths.appStyles}/**/*.min.css`,
-      ]),
-      // Include all unminified css files found in the 'includes' directory that aren't next to a javascript file.
-      ...glob.sync(
-        [
-          `${paths.appSrc}/**/*.css`,
-          `${paths.appSrc}/**/*.scss`,
-          `${paths.appSrc}/**/*.sass`,
-          `!${paths.appSrc}/**/*.min.css`,
-        ],
-        {
-          transform: file => {
-            const dir = path.dirname(file);
-            const results = glob.sync([`${dir}/*.jsx?`]);
-
-            if (results.length > 0) {
-              file = '';
-            }
-
-            return file;
-          },
-        }
-      ),
       // Include all unminified javascript files found in the 'scripts' directory.
       ...glob.sync([
         `${paths.appScripts}/**/*.js`,
@@ -216,10 +190,9 @@ module.exports = {
           // smaller than specified limit in bytes as data URLs to avoid requests.
           // A missing `test` is equivalent to a match.
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.eot$/, /\.svg$/, /\.ttf$/, /\.woff$/, /\.woff2$/],
             loader: require.resolve('url-loader'),
             options: {
-              limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },

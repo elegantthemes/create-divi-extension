@@ -1,14 +1,14 @@
 {
-  "name": "divi-scripts",
-  "version": "1.0.2-rc.0",
-  "description": "Configuration and scripts for Create Divi Extension.",
-  "repository": "elegantthemes/create-divi-extension",
+  "name": "qustodio-divi-scripts",
+  "version": "1.0.0",
+  "description": "Configuration and scripts for Qustodio Divi Extension.",
+  "repository": "qustodio/create-divi-extension",
   "license": "MIT",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/elegantthemes/create-divi-extension/issues"
+    "url": "https://github.com/qustodio/create-divi-extension/issues"
   },
   "files": [
     "bin",
