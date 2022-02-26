@@ -47,6 +47,10 @@ It will create a directory called `my-extension`. Inside that directory, it will
 ```
 my-extension
 ├── includes
+|   ├── fields
+│   │   └── Input
+│   │       ├── Input.jsx
+│   │       └── style.css
 │   ├── modules
 │   │   └── HelloWorld
 │   │       ├── HelloWorld.jsx
