@@ -91,5 +91,8 @@
       "Firefox ESR",
       "not ie < 11"
     ]
+  },
+  "resolutions": {
+    "grunt": "1.0.2"
   }
 }
