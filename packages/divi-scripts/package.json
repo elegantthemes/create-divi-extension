@@ -49,7 +49,7 @@
     "grunt": "1.0.2",
     "grunt-contrib-compress": "1.6.0",
     "grunt-po2mo": "elegantthemes/grunt-po2mo#master",
-    "grunt-wp-i18n": "1.0.2",
+    "grunt-wp-i18n": "ayubadiputra/grunt-wp-i18n#testing",
     "html-webpack-plugin": "2.30.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.1.0",
