@@ -39,5 +39,8 @@
     "yarn.lock": [
       "git rm --cached"
     ]
+  },
+  "resolutions": {
+    "grunt": "1.0.2"
   }
 }
