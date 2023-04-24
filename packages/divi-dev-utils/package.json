@@ -58,7 +58,7 @@
     "opn": "5.2.0",
     "pkg-up": "2.0.0",
     "recursive-readdir": "2.2.1",
-    "shell-quote": "1.6.1",
+    "shell-quote": "1.7.3",
     "sockjs-client": "1.1.4",
     "strip-ansi": "4.0.0",
     "text-table": "0.2.0"
