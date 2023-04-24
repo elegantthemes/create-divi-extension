@@ -32,7 +32,7 @@ Just create a project, and you’re good to go.
 
 ## Creating an Extension
 
-**You’ll need to have Node >= 6 on your local development machine**.
+**You’ll need to have Node >= 6 and <= 14 on your local development machine**.
 
 To create a new extension, run a single command from inside your WordPress plugins directory:
 
@@ -120,9 +120,6 @@ The [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/mas
 - [Adding Custom Environment Variables](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#adding-custom-environment-variables)
 - [Can I Use Decorators?](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#can-i-use-decorators)
 - [Fetching Data with AJAX Requests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#fetching-data-with-ajax-requests)
-- [Running Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#running-tests)
-- [Debugging Tests](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#debugging-tests)
-- [Deployment](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#deployment)
 - [Advanced Configuration](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#advanced-configuration)
 - [Troubleshooting](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md#troubleshooting)
 
