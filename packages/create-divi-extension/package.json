@@ -25,10 +25,10 @@
     "commander": "^2.9.0",
     "cross-spawn": "^4.0.0",
     "divi-dev-utils": "^1.0.2-alpha.0",
-    "envinfo": "3.4.2",
+    "envinfo": "4.0.0",
     "fs-extra": "^5.0.0",
     "hyperquest": "^2.1.2",
-    "semver": "^5.0.3",
+    "semver": "^7.5.2",
     "tar-pack": "^3.4.0",
     "tmp": "0.0.33",
     "validate-npm-package-name": "^3.0.0"
