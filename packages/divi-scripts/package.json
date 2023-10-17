@@ -32,7 +32,7 @@
     "babel-preset-divi-extension": "^1.0.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "2.3.0",
-    "css-loader": "0.28.9",
+    "css-loader": "1.0.0",
     "divi-dev-utils": "^1.0.2-alpha.0",
     "dotenv": "5.0.0",
     "dotenv-expand": "4.2.0",
