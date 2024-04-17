@@ -1,8 +1,13 @@
-# Create Divi Extension <!--[![CircleCI](https://circleci.com/gh/elegantthemes/create-divi-extension.svg?style=svg&circle-token=ddc0b9a9a293feba2cb9dce3d23282b83ed4133c)](https://circleci.com/gh/elegantthemes/create-divi-extension)-->
+# IMPORTANT: Transition to the New Divi 5.0 API - Repository Deprecated
+Please take note that this repository is no longer maintained and should not be utilized. We strongly recommend that you use the Divi 5.0 API for all new extensions. For further information and to participate in the Divi Beta Program, visit this page: https://devalpha.elegantthemes.com/.
 
-Create Divi Extensions with no build configuration.
 
-* [Creating an Extension](#creating-an-extension) – How to create a new extension.
+
+# Create Divi 4.x Extension <!--[![CircleCI](https://circleci.com/gh/elegantthemes/create-divi-extension.svg?style=svg&circle-token=ddc0b9a9a293feba2cb9dce3d23282b83ed4133c)](https://circleci.com/gh/elegantthemes/create-divi-extension)-->
+
+Create Divi 4.x Extensions with no build configuration.
+
+* [Creating an Extension](#creating-an-extension) – How to create a new extension (for the Divi 4.x API) (Deprecated).
 * [User Guide](https://github.com/elegantthemes/create-divi-extension/blob/master/packages/divi-scripts/template/README.md) – How to develop extensions bootstrapped with Create Divi Extension.
 
 Create Divi Extension works on macOS, Windows, and Linux. If something doesn’t work, please [file an issue](https://github.com/elegantthemes/create-divi-extension/issues/new).
