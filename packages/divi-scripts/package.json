@@ -52,7 +52,7 @@
     "grunt-wp-i18n": "elegantthemes/grunt-wp-i18n#develop",
     "html-webpack-plugin": "2.30.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.1.0",
+    "jest": "28.0.0",
     "lodash": "4.17.18",
     "node-sass": "4.14.1",
     "object-assign": "4.1.1",
