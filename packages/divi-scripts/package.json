@@ -52,7 +52,7 @@
     "grunt-wp-i18n": "elegantthemes/grunt-wp-i18n#develop",
     "html-webpack-plugin": "2.30.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.1.0",
+    "jest": "30.0.0",
     "lodash": "4.17.18",
     "node-sass": "4.14.1",
     "object-assign": "4.1.1",
@@ -68,7 +68,7 @@
     "uglifyjs-webpack-plugin": "1.1.6",
     "url-loader": "0.6.2",
     "webpack": "3.10.0",
-    "webpack-dev-server": "2.11.0",
+    "webpack-dev-server": "5.2.1",
     "webpack-manifest-plugin": "1.3.2",
     "whatwg-fetch": "2.0.3"
   },
